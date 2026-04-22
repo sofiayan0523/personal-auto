@@ -2,9 +2,8 @@ name: Morning Brief
 
 on:
   schedule:
-    # 08:00 Taipei (UTC+8) = 00:00 UTC
     - cron: '0 0 * * *'
-  workflow_dispatch:  # 允許手動觸發（測試用）
+  workflow_dispatch:
 
 jobs:
   morning-brief:
@@ -13,23 +12,7 @@ jobs:
       - name: Trigger Omni Morning Brief
         env:
           OMNI_API_KEY: ${{ secrets.OMNI_API_KEY }}
-          OMNI_URL: "https://omniai.one/api/external/conversations/e3e0b03e-62c0-4adb-891d-f21402cdc3d7/run"
         run: |
-          HTTP_CODE=$(curl -s \
-            -o /tmp/omni_response.json \
-            -w "%{http_code}" \
-            -X POST "$OMNI_URL" \
-            -H "X-API-Key: $OMNI_API_KEY" \
-            -H "Content-Type: application/json" \
-            -d '{"content": "morning brief"}')
-
-          echo "HTTP Status: $HTTP_CODE"
-          echo "Response body:"
-          cat /tmp/omni_response.json 2>/dev/null || echo "(empty)"
-
-          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
-            echo "Morning brief triggered successfully."
-          else
-            echo "ERROR: Request failed with HTTP $HTTP_CODE"
-            exit 1
-          fi
+          set +e
+          curl -v -X POST "https://omnitunnel.numbersprotocol.io/api/external/conversations/e3e0b03e-62c0-4adb-891d-f21402cdc3d7/run" -H "X-API-Key: ${OMNI_API_KEY}" -H "Content-Type: application/json" -d '{"content":"morning brief"}'
+          echo "EXIT_CODE=$?"
