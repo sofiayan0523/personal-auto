@@ -11,12 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Omni Morning Brief
+        env:
+          OMNI_API_KEY: ${{ secrets.OMNI_API_KEY }}
+          OMNI_URL: "https://****/api/external/conversations/e3e0b03e-62c0-4adb-891d-f21402cdc3d7/run"
         run: |
-          RESPONSE=$(curl -s -X POST \
-            "https://****/api/external/conversations/e3e0b03e-62c0-4adb-891d-f21402cdc3d7/run" \
-            -H "X-API-Key: ${{ secrets.OMNI_API_KEY }}" \
+          HTTP_CODE=$(curl -s \
+            -o /tmp/omni_response.json \
+            -w "%{http_code}" \
+            -X POST "$OMNI_URL" \
+            -H "X-API-Key: $OMNI_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{"content": "morning brief"}')
-          echo "Response: $RESPONSE"
-          STATUS=$(echo $RESPONSE | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('status','unknown'))")
-          echo "Task status: $STATUS"
+
+          echo "HTTP Status: $HTTP_CODE"
+          echo "Response body:"
+          cat /tmp/omni_response.json 2>/dev/null || echo "(empty)"
+
+          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+            echo "Morning brief triggered successfully."
+          else
+            echo "ERROR: Request failed with HTTP $HTTP_CODE"
+            exit 1
+          fi
