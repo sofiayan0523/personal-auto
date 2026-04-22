@@ -13,7 +13,7 @@ jobs:
       - name: Trigger Omni Morning Brief
         env:
           OMNI_API_KEY: ${{ secrets.OMNI_API_KEY }}
-          OMNI_URL: "https://****/api/external/conversations/e3e0b03e-62c0-4adb-891d-f21402cdc3d7/run"
+          OMNI_URL: "https://omniai.one/api/external/conversations/e3e0b03e-62c0-4adb-891d-f21402cdc3d7/run"
         run: |
           HTTP_CODE=$(curl -s \
             -o /tmp/omni_response.json \
