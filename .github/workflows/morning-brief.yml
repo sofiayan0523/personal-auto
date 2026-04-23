@@ -12,20 +12,34 @@ jobs:
       - name: Trigger Omni Morning Brief
         env:
           OMNI_API_KEY: ${{ secrets.OMNI_API_KEY }}
+          OMNI_URL: "https://omnitunnel.numbersprotocol.io/api/external/conversations/e3e0b03e-62c0-4adb-891d-f21402cdc3d7/run"
         run: |
           set +e
 
-          curl -v \
-            -X POST \
+          PROMPT='執行 morning-brief skill，產生今日完整早報。請嚴格遵守以下規則：
+
+          語言：全部使用繁體中文（新聞標題與摘要皆須翻譯為繁體中文）
+          時區：Asia/Taipei
+
+          請依序完成以下五個步驟：
+
+          Step 1 — 今日行程：使用 calendar_list_events 查詢 primary calendar 今日事件，列出時間與名稱。
+          Step 2 — 郵件摘要：使用 gmail_search 搜尋 is:inbox is:unread newer_than:1d，對重要郵件用 gmail_get_message 讀取，分為「需要回覆」與「參考閱讀」，最多列 5 封。
+          Step 3 — 國際新聞 Top 5：使用 WebSearch 搜尋今日國際新聞，選出 5 則最重要的，每則包含繁體中文標題、一句話摘要、來源超連結。
+          Step 4 — 產業新聞 Top 5：使用 WebSearch 搜尋三個主題（AI 2則、Web3 1-2則、C2PA 1-2則），合計 5 則，格式同上。僅收錄一個月內的新聞。
+          Step 5 — 組合報告：將以上內容組合為格式化日報輸出至對話中。'
+
+          echo "Sending morning brief request..."
+          curl -s -X POST "$OMNI_URL" \
             -H "X-API-Key: ${OMNI_API_KEY}" \
             -H "Content-Type: application/json" \
-            -d '{"content": "morning brief"}' \
-            "https://omnitunnel.numbersprotocol.io/api/external/conversations/e3e0b03e-62c0-4adb-891d-f21402cdc3d7/run" \
+            -d "$(printf '{"content": "%s"}' "$(echo "$PROMPT" | tr '\n' ' ' | sed 's/"/\\"/g')")" \
             -o /tmp/response.json \
-            --write-out "\nHTTP_STATUS=%{http_code}\n"
+            -w "\nHTTP_STATUS=%{http_code}\n"
 
           CURL_CODE=$?
           echo "curl exit code: $CURL_CODE"
+          echo "response body:"
           cat /tmp/response.json 2>/dev/null || echo "(empty)"
 
           if [ "$CURL_CODE" -ne 0 ]; then
