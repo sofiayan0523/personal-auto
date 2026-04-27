@@ -35,4 +35,4 @@
 - Skill sync note: `.omni/skills/morning-brief/SKILL.md` and `.claude/skills/morning-brief/SKILL.md` are separate files and may both be overwritten by an upstream space-skill sync; current Z App version marker is `zapp-v2-2026-04-24`
 
 ---
-_Last system refresh: 2026-04-27 03:27 UTC_
+_Last system refresh: 2026-04-27 03:31 UTC_
