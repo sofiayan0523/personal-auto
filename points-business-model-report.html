@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>點數不是折扣｜國內外點數商業模式研究報告</title>
+  <meta name="description" content="以國內外企業公開資料整理點數機制、企業價值、限制與捷運點減碳加成的產品設計建議。">
+  <style>
+    @font-face{font-family:WorkshopSans;src:url('assets/fonts/NotoSansCJKtc-Workshop.woff2') format('woff2');font-display:swap}
+    :root{
+      --ink:#1a1a1a;--muted:#5f625d;--paper:#f7f4ed;--card:#fffdf8;--green:#7f9c7e;--green-dark:#335b49;
+      --yellow:#d8b76a;--stone:#cec0a3;--red:#ed5d29;--blue:#2e52a0;--light-blue:#c1e1dc;--pink:#f9c6c0;
+      --line:rgba(26,26,26,.14);--shadow:0 18px 48px rgba(26,26,26,.08);--radius:22px;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:WorkshopSans,"Noto Sans TC",system-ui,sans-serif;line-height:1.72}
+    a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:var(--red)}
+    .shell{max-width:1280px;margin:0 auto;padding:0 28px}.topbar{position:sticky;top:0;z-index:10;background:rgba(247,244,237,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .topbar-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.02em}.brand-mark{width:30px;height:30px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900}.topnav{display:flex;gap:18px;overflow:auto;white-space:nowrap;font-size:13px}.topnav a{color:var(--muted);text-decoration:none}.topnav a:hover{color:var(--ink)}
+    .hero{padding:88px 0 76px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 58%,rgba(127,156,126,.18) 58% 72%,transparent 72%),repeating-linear-gradient(0deg,transparent 0 18px,rgba(46,82,160,.045) 19px 20px);pointer-events:none}.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.9fr);gap:64px;align-items:center}.eyebrow{font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--green-dark);font-weight:800}.hero h1{font-size:clamp(42px,6vw,84px);line-height:1.06;letter-spacing:-.07em;margin:18px 0 28px;max-width:850px}.hero h1 em{font-style:normal;color:var(--red)}.hero-lede{font-size:clamp(18px,2vw,24px);max-width:760px;margin:0;color:#333a35}.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}.pill{border:1px solid var(--line);background:rgba(255,253,248,.72);padding:7px 12px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .hero-graphic{min-height:360px;display:grid;place-items:center}.orb{width:min(390px,80vw);aspect-ratio:1;border-radius:50%;background:var(--green);position:relative;box-shadow:inset -35px -24px 0 rgba(26,26,26,.08),0 24px 0 var(--yellow)}.orb:before,.orb:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.58);border-radius:50%;inset:13%;transform:rotate(24deg)}.orb:after{inset:27%;transform:rotate(-32deg)}.orb-label{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;font-weight:900;font-size:clamp(26px,4vw,46px);line-height:1.1;letter-spacing:-.06em}.orb-label small{display:block;font-size:12px;letter-spacing:.12em;margin-top:12px;opacity:.8}.dot{position:absolute;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--red);color:#fff;font-weight:900;box-shadow:0 7px 0 rgba(26,26,26,.14)}.dot.d1{top:4%;right:2%}.dot.d2{bottom:6%;left:0;background:var(--blue)}.dot.d3{top:46%;right:-8%;background:var(--yellow);color:var(--ink)}
+    main{padding-bottom:90px}.section{padding:84px 0 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:30px}.section-kicker{font-size:13px;color:var(--red);font-weight:900;letter-spacing:.12em}.section h2{font-size:clamp(30px,4vw,52px);line-height:1.16;letter-spacing:-.055em;margin:6px 0 0}.section-head p{max-width:450px;color:var(--muted);margin:0;font-size:15px}.grid{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}.card h3{line-height:1.3;margin:0 0 10px;font-size:20px;letter-spacing:-.035em}.card p{margin:0;color:#424842;font-size:15px}.num{font-size:44px;line-height:1;font-weight:900;color:var(--red);letter-spacing:-.08em;margin-bottom:18px}.tag{display:inline-block;font-size:12px;color:var(--green-dark);background:rgba(193,225,220,.55);padding:3px 8px;border-radius:999px;margin-bottom:12px}.callout{border-left:6px solid var(--red);background:#fff8ee;padding:23px 26px;border-radius:0 var(--radius) var(--radius) 0;font-size:19px;line-height:1.65}.callout strong{color:var(--red)}
+    .model-map{display:grid;grid-template-columns:1.1fr repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card)}.model-map>div{padding:24px;border-right:1px solid var(--line);min-height:210px}.model-map>div:last-child{border-right:0}.model-map .axis{background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between}.axis b{font-size:22px;line-height:1.3}.axis small{color:#d9dfda}.model-map h3{font-size:18px;margin:0 0 12px}.model-map p{font-size:14px;color:var(--muted);margin:0}.model-map .axis p{color:#d9dfda}.bar{height:8px;background:var(--light-blue);border-radius:99px;overflow:hidden;margin-top:22px}.bar i{display:block;height:100%;background:var(--green-dark);border-radius:inherit}.bar.red{background:var(--pink)}.bar.red i{background:var(--red)}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch}.flow-step{position:relative;padding:23px 18px 23px 23px;background:var(--card);border:1px solid var(--line);min-height:200px}.flow-step:first-child{border-radius:var(--radius) 0 0 var(--radius)}.flow-step:last-child{border-radius:0 var(--radius) var(--radius) 0}.flow-step:not(:last-child):after{content:"→";position:absolute;right:-14px;top:calc(50% - 17px);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--yellow);z-index:2;font-weight:900}.flow-step .stage{font-size:12px;letter-spacing:.13em;color:var(--red);font-weight:900}.flow-step h3{font-size:18px;margin:14px 0 7px;line-height:1.32}.flow-step p{font-size:14px;color:var(--muted);margin:0}
+    .case{position:relative;overflow:hidden}.case:before{content:"";position:absolute;right:-36px;top:-50px;width:130px;height:130px;border-radius:50%;background:var(--light-blue);opacity:.55}.case .case-index{font-size:12px;color:var(--muted);letter-spacing:.1em}.case h3{font-size:25px;margin-top:14px}.case h3 span{font-size:13px;font-weight:400;color:var(--muted);letter-spacing:.04em}.case .mechanism{color:var(--green-dark);font-weight:800;font-size:15px;min-height:58px}.case ul{padding-left:20px;margin:15px 0 0;color:#4b514c;font-size:14px}.case li+li{margin-top:7px}.source-note{font-size:12px;color:var(--muted);margin-top:18px;padding-top:12px;border-top:1px dashed var(--line)}
+    .case-domestic{border-top:6px solid var(--red)}.case-international{border-top:6px solid var(--blue)}
+    .compare{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}table{border-collapse:collapse;width:100%;min-width:920px;font-size:14px}th,td{padding:16px 17px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}th{background:var(--ink);color:#fff;font-weight:700;white-space:nowrap}tr:last-child td{border-bottom:0}td:first-child{font-weight:800;color:var(--green-dark);white-space:nowrap}.status{display:inline-flex;align-items:center;gap:6px}.status:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+    .benefit-card{min-height:230px}.benefit-card h3{display:flex;align-items:center;gap:10px}.icon{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--light-blue);font-size:17px}.benefit-card:nth-child(2) .icon{background:var(--pink)}.benefit-card:nth-child(3) .icon{background:#f4e9d5}.benefit-card:nth-child(4) .icon{background:#dce0f2}.benefit-card ul,.decision ul{padding-left:20px;color:#4b514c;font-size:14px;margin:8px 0 0}.benefit-card li+li,.decision li+li{margin-top:6px}
+    .economics{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.equation{background:var(--ink);color:#fff;border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;justify-content:center}.equation .formula{font-size:clamp(22px,3vw,38px);line-height:1.3;letter-spacing:-.06em;margin:16px 0;color:var(--yellow)}.equation p{color:#d9dfda;font-size:14px;margin:0}.ledger{display:grid;gap:10px}.ledger-row{display:grid;grid-template-columns:1fr 92px;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding:13px 0;font-size:14px}.ledger-row:last-child{border-bottom:0}.ledger-row b{color:var(--red);text-align:right}.ledger-row small{display:block;color:var(--muted);font-size:12px}
+    .decision{background:var(--green-dark);color:#fff;border-radius:var(--radius);padding:32px}.decision h3{font-size:28px;line-height:1.25;margin:0 0 8px;letter-spacing:-.05em}.decision p{color:#e4eee5;margin:0}.decision ul{color:#e4eee5}.decision .label{color:var(--yellow);font-size:12px;letter-spacing:.12em;font-weight:900}.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.matrix{display:grid;grid-template-columns:1fr 1fr;gap:12px}.matrix .cell{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card)}.matrix .cell strong{display:block;margin-bottom:5px}.matrix .cell.good{background:#edf5eb;border-color:rgba(51,91,73,.3)}.matrix .cell.warn{background:#fff4ed;border-color:rgba(237,93,41,.3)}
+    .kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.kpi{border-top:4px solid var(--green);padding:18px 12px;background:var(--card);border-radius:14px}.kpi:nth-child(2){border-color:var(--yellow)}.kpi:nth-child(3){border-color:var(--blue)}.kpi:nth-child(4){border-color:var(--red)}.kpi:nth-child(5){border-color:var(--stone)}.kpi strong{display:block;font-size:16px;line-height:1.3}.kpi span{font-size:12px;color:var(--muted)}
+    .sources{columns:2;column-gap:42px}.sources li{break-inside:avoid;margin-bottom:11px;font-size:13px}.sources small{display:block;color:var(--muted)}.source-group{margin-bottom:28px}.source-group h3{font-size:18px;margin:0 0 12px}.source-group ol{padding-left:20px}.footnote{font-size:12px;color:var(--muted);padding:22px 0 0;border-top:1px solid var(--line);margin-top:42px}.print-note{font-size:12px;color:var(--muted);text-align:right}
+    @media (max-width:980px){.hero-grid,.economics,.decision-grid{grid-template-columns:1fr}.hero-graphic{min-height:300px}.model-map{grid-template-columns:1fr 1fr}.model-map>div:nth-child(2){border-right:0}.model-map>div:nth-child(-n+2){border-bottom:1px solid var(--line)}.model-map .axis{grid-column:1/-1;min-height:160px}.model-map>div{border-right:1px solid var(--line)}.model-map>div:nth-child(odd){border-right:0}.flow{grid-template-columns:1fr;gap:10px}.flow-step,.flow-step:first-child,.flow-step:last-child{border-radius:16px;min-height:auto}.flow-step:not(:last-child):after{content:"↓";right:calc(50% - 14px);top:auto;bottom:-18px}.kpi-strip{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:680px){.shell{padding:0 17px}.topbar-inner{height:56px}.brand{font-size:13px}.topnav{gap:12px;font-size:11px}.hero{padding:58px 0}.hero h1{font-size:47px}.hero-lede{font-size:17px}.hero-graphic{min-height:250px}.orb{width:260px}.dot{width:40px;height:40px;font-size:12px}.section{padding-top:58px}.section-head{display:block}.section-head p{margin-top:12px}.grid-3,.grid-4,.grid-2{grid-template-columns:1fr}.model-map{grid-template-columns:1fr}.model-map .axis{grid-column:auto}.model-map>div,.model-map>div:nth-child(odd),.model-map>div:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}.model-map>div:last-child{border-bottom:0}.kpi-strip{grid-template-columns:1fr 1fr}.sources{columns:1}.callout{font-size:17px;padding:19px}.card{padding:20px}.print-note{text-align:left}}
+    @media print{.topbar{position:static}.topnav{display:none}.hero{padding:35px 0}.section{padding-top:36px}.card,.compare,.model-map,.flow-step,.decision,.equation{box-shadow:none;break-inside:avoid}.section-head{break-after:avoid}a{color:inherit;text-decoration:none}.footnote{margin-top:20px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand"><span class="brand-mark">P</span><span>POINTS / BUSINESS MODEL</span></div>
+      <nav class="topnav" aria-label="頁面導覽">
+        <a href="#summary">摘要</a><a href="#mechanism">機制</a><a href="#cases">案例</a><a href="#economics">經濟性</a><a href="#metro">捷運應用</a><a href="#sources">來源</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">Research note · 2026.07.22 · 繁體中文</div>
+          <h1>點數不是折扣。<br><em>它是一套行為、負債與流量的設計。</em></h1>
+          <p class="hero-lede">本報告把點數放回企業真正要解的問題：如何讓人再回來、讓合作夥伴願意付費、讓資料能形成更好的服務，同時不讓點數變成失控的成本與承諾。</p>
+          <div class="meta"><span class="pill">6 個公開案例</span><span class="pill">4 種商業模型</span><span class="pill">1 套捷運提案落地建議</span></div>
+        </div>
+        <div class="hero-graphic" aria-label="點數連接行為、交易、資料與合作夥伴的視覺圖">
+          <div class="orb"><div class="orb-label">POINT<br><small>FROM REWARD TO RAIL</small></div><span class="dot d1">行為</span><span class="dot d2">交易</span><span class="dot d3">資料</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="shell">
+      <section class="section" id="summary">
+        <div class="section-head"><div><div class="section-kicker">01 / EXECUTIVE VIEW</div><h2>先說結論</h2></div><p>案例顯示，成熟的點數方案很少只靠「送點」創造價值；真正的價值在於點數背後的行為閉環。</p></div>
+        <div class="grid grid-3">
+          <article class="card"><div class="num">01</div><h3>點數是行為設計工具</h3><p>它把「消費、回訪、使用 App、完成任務、選擇某條路徑」轉成可被記錄與回饋的行為。回饋不一定是現金，也可以是升等、體驗、優先權或下一次消費的折抵。</p></article>
+          <article class="card"><div class="num">02</div><h3>點數是跨方結算介面</h3><p>當點數能在多個品牌或合作場景流通，企業就必須處理誰發點、誰負擔兌換成本、誰擁有會員關係、如何對帳。跨平台的便利，會換來治理與清算複雜度。</p></article>
+          <article class="card"><div class="num">03</div><h3>點數可以變成媒體產品</h3><p>Rakuten、LINE 等案例說明，企業賣的往往不是「點數」，而是會員觸及、轉換、個人化與可衡量的導流。點數是讓廣告更像一個可行動的邀請。</p></article>
+        </div>
+        <div class="callout" style="margin-top:18px"><strong>對「從碳客變捷客」的直接啟示：</strong>第一階段應做「捷運點減碳加成」而不是另立一套泛綠點；北捷的可變現單位應是站點情境中的會員觸及與導客，點數是促成行動的誘因。</div>
+      </section>
+
+      <section class="section" id="mechanism">
+        <div class="section-head"><div><div class="section-kicker">02 / HOW THE SYSTEM WORKS</div><h2>點數商業模式的四種骨架</h2></div><p>不要先問「要送幾點」，先問「要改變哪個行為、由誰付錢、在哪裡兌換」。</p></div>
+        <div class="model-map">
+          <div class="axis"><b>同一個點數，<br>可以承擔不同任務。</b><p>越往右，合作網絡與變現空間越大；同時，清算、資料與履約風險也越高。</p></div>
+          <div><h3>封閉式回饋</h3><p>在單一品牌或單一生態系內累積與兌換。重點是回訪、預付、升等與會員識別。</p><div class="bar"><i style="width:30%"></i></div><small>網絡複雜度低</small></div>
+          <div><h3>訂閱／等級</h3><p>以付費會員、消費門檻或活躍程度換取更高回饋、服務與優先權。</p><div class="bar"><i style="width:43%"></i></div><small>關係深度高</small></div>
+          <div><h3>跨品牌聯盟</h3><p>多個品牌共同發點、用點或交換點數。點數成為會員與合作夥伴之間的共同語言。</p><div class="bar"><i style="width:58%"></i></div><small>網絡複雜度中</small></div>
+          <div><h3>點數＋媒體</h3><p>合作商家用點數活動購買觸及、導流與轉換；平台以第一方行為資料做分眾與衡量。</p><div class="bar red"><i style="width:82%"></i></div><small>變現彈性高</small></div>
+        </div>
+        <div class="flow" style="margin-top:18px">
+          <div class="flow-step"><div class="stage">01 / TRIGGER</div><h3>設計一個想被改變的行為</h3><p>購買、回訪、搭乘、出站、完成任務、主動選擇偏好。</p></div>
+          <div class="flow-step"><div class="stage">02 / ISSUE</div><h3>發點與設定條件</h3><p>基礎回饋、加碼倍率、任務門檻、會員等級、期限。</p></div>
+          <div class="flow-step"><div class="stage">03 / VALUE</div><h3>讓會員知道點數有用</h3><p>折抵、換券、免費體驗、升等、優先權、合作夥伴權益。</p></div>
+          <div class="flow-step"><div class="stage">04 / FUND</div><h3>決定誰負擔成本</h3><p>品牌毛利、合作商家、信用卡／金融夥伴、廣告預算或平台費。</p></div>
+          <div class="flow-step"><div class="stage">05 / LEARN</div><h3>把結果帶回下一次推薦</h3><p>兌換、點擊、推播開啟、回訪與未使用資料，形成下一輪分眾。</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="cases">
+        <div class="section-head"><div><div class="section-kicker">03 / CASE STUDIES</div><h2>案例：點數如何被做成生意</h2></div><p>下列案例以企業官方規則、官方說明、年報或公開監管文件為主；個別活動與條款可能隨時間調整。</p></div>
+        <div class="grid grid-2">
+          <article class="card case case-domestic"><div class="case-index">TAIWAN / 01</div><h3>OPENPOINT <span>統一超商生態系</span></h3><p class="mechanism">跨通路會員點數：消費與活動累點，指定通路折抵，也能兌商品、航空哩程與其他點數。</p><ul><li><b>企業價值：</b>把 7-ELEVEN 與合作通路放在同一會員識別下，增加跨通路使用與點數消耗場景。</li><li><b>關鍵設計：</b>官方說明載明指定通路可 1 點折 1 元；但點數需歸戶、不同通路的累點／使用規則仍受限制。</li><li><b>對捷運的借鑑：</b>先做「捷運點在既有合作場景的可用性」，再談跨平台交換；兌換場景比發點本身更重要。</li></ul><div class="source-note">來源：<a href="https://www.openpoint.com.tw/cdn/about_point.html">OPENPOINT 點數說明</a>、<a href="https://ir.7-11.com.tw/taiwan/2912/annual/2025/20260429171726-1.pdf">統一超 2025 年報</a></div></article>
+          <article class="card case case-domestic"><div class="case-index">TAIWAN / 02</div><h3>Hami Point <span>中華電信</span></h3><p class="mechanism">電信會員生態系：申辦服務、活動、任務、購物與支付都可能成為得點入口，點數可換票券、商品、服務或與其他點數交換。</p><ul><li><b>企業價值：</b>把電信客戶關係延伸到內容、電商、支付與合作品牌，讓點數成為多服務的導流層。</li><li><b>關鍵設計：</b>官方頁面同時呈現任務中心、購物賺點、票券館與點數交換；「任務」讓非消費行為也能被設計成互動入口。</li><li><b>限制：</b>交換比例、期限、合作商家與兌換商品都會增加營運與客服複雜度；點數有效期與跨方條款需要清楚。</li></ul><div class="source-note">來源：<a href="https://hamipoint.cht.com.tw/faq">Hami Point FAQ</a>、<a href="https://hamipoint.cht.com.tw/transpoint?Source=APP">點數交換專區</a></div></article>
+          <article class="card case case-domestic"><div class="case-index">TAIWAN / 03</div><h3>LINE POINTS <span>平台型點數與購物導流</span></h3><p class="mechanism">以 LINE 帳號為入口，透過 LINE 購物、合作夥伴活動與指定服務取得點數，再換券、折抵或交換其他通路點數。</p><ul><li><b>企業價值：</b>點數把內容、官方帳號、購物與合作夥伴連成可追蹤的行動路徑。</li><li><b>關鍵設計：</b>LINE 購物條款明確把「是否符合贈點資格」連到合作夥伴系統資料，代表歸因、資格判定與例外處理是核心能力。</li><li><b>限制：</b>需要帳號、合作夥伴資料與個資同意；若使用者從指定路徑外完成交易，可能不符合贈點條件。</li></ul><div class="source-note">來源：<a href="https://terms2.line.me/tw_line_shopping_?country=TW&lang=zh-Hant">LINE 購物使用條款</a>、<a href="https://page.line.me/linepoints.tw">LINE POINTS 台灣官方帳號</a></div></article>
+          <article class="card case case-domestic"><div class="case-index">TAIWAN / 04</div><h3>Starbucks Rewards <span>台灣星巴克星禮程</span></h3><p class="mechanism">封閉式支付與會員制度：使用記名隨行卡或 App 支付，消費滿額得星，星級與回饋分層，並透過 LINE／App 發送個人化通知。</p><ul><li><b>企業價值：</b>把支付、預付、會員辨識、回訪與新品／活動溝通放在同一個閉環。</li><li><b>關鍵設計：</b>官方規則以每 NT$35 得 1 顆星，並設 66／168 星級門檻；星星與等級有週期，促使會員維持互動。</li><li><b>限制：</b>點數期限與規則變動會影響感知價值；回饋越複雜，客服與會員理解成本越高。</li></ul><div class="source-note">來源：<a href="https://www.starbucks.com.tw/rewards/catalog.jspx?m=new&p=app">星禮程官方說明</a>、<a href="https://www.starbucks.com.tw/faq/lineqa.jspx">星巴克 LINE 綁定與推播 FAQ</a></div></article>
+          <article class="card case case-international"><div class="case-index">GLOBAL / 05</div><h3>Rakuten Points <span>電商生態系＋績效媒體</span></h3><p class="mechanism">會員在 Rakuten 服務與合作夥伴消費或完成指定行為得點，再於指定服務使用；對商家則包裝成可控制預算的點數活動、導流與個人化投放。</p><ul><li><b>企業價值：</b>官方商業頁把 Cash Back、資料、媒體、個人化與 targeting 放在同一套商家方案中，點數成為績效行銷的可行動誘因。</li><li><b>關鍵設計：</b>商家依產生的銷售量負擔活動成本，點數優惠可以提升曝光與流量但不必直接改商品標價。</li><li><b>限制：</b>必須能可靠歸因「哪次點擊／活動帶來哪筆交易」；若只買到折扣、沒有增量，商家會質疑方案價值。</li></ul><div class="source-note">來源：<a href="https://business.rakuten.com/">Rakuten Rewards for Business</a>、<a href="https://global.rakuten.com/corp/terms/">Rakuten Point Terms</a></div></article>
+          <article class="card case case-international"><div class="case-index">GLOBAL / 06</div><h3>Marriott Bonvoy <span>旅宿聯盟＋金融合作</span></h3><p class="mechanism">會員在旅宿、餐飲、活動、信用卡與合作夥伴累積點數，可兌房晚、旅遊、體驗、禮品或轉換夥伴里程；企業同時經營會員、品牌與合作資金。</p><ul><li><b>企業價值：</b>年報指出聯名信用卡形成多元收入來源，也強化會員計畫與旅宿組合的價值。</li><li><b>關鍵設計：</b>點數能在旅宿、合作夥伴與體驗間流動；官方提供現金＋點數、轉換夥伴與體驗兌換。</li><li><b>限制：</b>年報明確揭露點數負債、遞延收入與 breakage 估計；兌換率、點值、合作方資金與可用房晚都會影響財務結果。</li></ul><div class="source-note">來源：<a href="https://marriott.gcs-web.com/static-files/90ac617a-ef5f-4438-97ec-2e7cf4f8a41e">Marriott 2025 Annual Report</a>、<a href="https://www.marriott.com/loyalty/terms/default.mi">Bonvoy Program Terms</a></div></article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><div class="section-kicker">04 / COMPARISON</div><h2>案例放在同一張桌上</h2></div><p>同樣叫「點數」，其實是完全不同的企業能力組合。</p></div>
+        <div class="compare">
+          <table>
+            <thead><tr><th>案例</th><th>發點觸發</th><th>主要兌換</th><th>企業真正要得到的</th><th>最難的地方</th></tr></thead>
+            <tbody>
+              <tr><td>OPENPOINT</td><td>消費、活動、合作通路</td><td>折抵、商品、哩程、換點</td><td>跨通路會員與消耗場景</td><td>歸戶、通路規則、跨方結算</td></tr>
+              <tr><td>Hami Point</td><td>電信服務、任務、購物、活動</td><td>票券、商品、服務、交換</td><td>把客戶帶進更多服務</td><td>兌換商城與交換網絡的維運</td></tr>
+              <tr><td>LINE POINTS</td><td>購物導流、活動、合作服務</td><td>折抵、兌券、交換</td><td>可歸因的合作夥伴流量</td><td>資格判定、資料與路徑歸因</td></tr>
+              <tr><td>星禮程</td><td>品牌支付與消費金額</td><td>品牌商品、會員權益</td><td>回訪、預付、支付與直接關係</td><td>回饋成本、期限、體驗一致性</td></tr>
+              <tr><td>Rakuten</td><td>交易、合作活動、平台行為</td><td>平台內折抵／回饋</td><td>交易佣金＋資料／媒體收入</td><td>增量效果與交易歸因</td></tr>
+              <tr><td>Marriott Bonvoy</td><td>旅宿、金融、旅遊夥伴</td><td>房晚、旅遊、體驗、轉點</td><td>品牌忠誠＋夥伴資金與收入</td><td>點數負債、breakage、供給限制</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="economics">
+        <div class="section-head"><div><div class="section-kicker">05 / ECONOMICS & CONTROL</div><h2>點數的好處，與它不會自己消失的成本</h2></div><p>企業若只計算「送出多少點」，沒有計算兌換、清算與資料治理，就還沒有真正算過這個方案。</p></div>
+        <div class="grid grid-4">
+          <article class="card benefit-card"><h3><span class="icon">↻</span>留住回訪</h3><ul><li>把下一次行為變成可見的目標。</li><li>用期限、等級、任務與個人化讓會員保持互動。</li><li>適合有頻率、可重複使用的服務。</li></ul></article>
+          <article class="card benefit-card"><h3><span class="icon">↗</span>增加轉換</h3><ul><li>把折扣包裝成帶有目標的回饋。</li><li>可將點數與指定品類、時段、地點或合作活動綁定。</li><li>商家能用點數活動測試導流，而非全面降價。</li></ul></article>
+          <article class="card benefit-card"><h3><span class="icon">◎</span>形成第一方資料</h3><ul><li>累積兌換、點擊、回訪與偏好訊號。</li><li>可改善推薦，但必須有明確同意與最小必要原則。</li><li>資料不等於可以任意販售；信任本身是方案資產。</li></ul></article>
+          <article class="card benefit-card"><h3><span class="icon">▣</span>開啟合作收入</h3><ul><li>把會員觸及、活動曝光、導客與衡量包裝成方案。</li><li>由合作方補貼點數或支付媒體／服務費。</li><li>前提是能說明增量與對帳，不只是發券。</li></ul></article>
+        </div>
+        <div class="economics" style="margin-top:18px">
+          <div class="equation"><div class="eyebrow" style="color:var(--yellow)">CONTROL PANEL</div><div class="formula">方案貢獻<br>= 增量毛利＋合作資金<br>− 兌換成本 − 營運成本</div><p>這是管理用的簡化框架，不是會計認列公式。實際點數負債、履約義務與收入認列仍需由財會依適用準則判斷。</p></div>
+          <div class="card"><h3>企業要持續追的五個帳</h3><div class="ledger"><div class="ledger-row"><div><b>發點帳</b><small>哪些行為得到點？每個行為的邊際成本是什麼？</small></div><b>行為</b></div><div class="ledger-row"><div><b>兌換帳</b><small>點數在哪裡被用掉？兌換品的成本由誰負擔？</small></div><b>履約</b></div><div class="ledger-row"><div><b>合作帳</b><small>商家買的是點數、曝光、導流，還是整套行銷方案？</small></div><b>資金</b></div><div class="ledger-row"><div><b>資料帳</b><small>哪些訊號被收集、同意、保留與用於推薦？</small></div><b>信任</b></div><div class="ledger-row"><div><b>風險帳</b><small>過期、詐領、重複兌換、點值變動、系統中斷怎麼處理？</small></div><b>韌性</b></div></div></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><div class="section-kicker">06 / THE COSTS OF COMPLEXITY</div><h2>限制不是附註，是產品的一部分</h2></div><p>成熟方案都在做取捨：兌換越自由，價值越高，但結算、供給、財務與治理也越難。</p></div>
+        <div class="matrix">
+          <div class="cell good"><strong>可以借鑑｜清楚的價值出口</strong><span>會員要能在第一次拿到點時就知道怎麼用。折抵、換券、升等或體驗，至少要有一個簡單、可信、可立即行動的出口。</span></div>
+          <div class="cell warn"><strong>必須防守｜點數負債與 breakage</strong><span>IFRS 15 將提供額外商品／服務的點數視為可能的 material right；企業不能把所有收入都在發點時一次認列，還要估兌換與未兌換。</span></div>
+          <div class="cell good"><strong>可以借鑑｜把點數綁到明確行為</strong><span>指定品類、時段、站點、低碳行程或合作活動，比無差別發點更容易驗證增量，也比較能控制預算。</span></div>
+          <div class="cell warn"><strong>必須防守｜不要用資料能力過度承諾</strong><span>若企業只有進出站或會員資料，就不能直接宣稱掌握完整消費偏好；應改成 opt-in 偏好與生活圈訊號。</span></div>
+          <div class="cell good"><strong>可以借鑑｜先用換券／QR 核銷</strong><span>在 POS 串接尚未成熟時，App 內換券、店內掃碼、後台對帳是可控的 MVP；把即時點對點折抵放到後續。</span></div>
+          <div class="cell warn"><strong>必須防守｜跨平台不是免費的成長</strong><span>跨品牌點數要處理身份、授權、交換比例、退貨、詐領、客服與結算；若沒有足夠消耗場景，聯盟只會增加複雜度。</span></div>
+        </div>
+        <div class="callout" style="margin-top:18px"><strong>財務提醒：</strong>IFRS Foundation 說明，IFRIC 13 已被 IFRS 15 取代；AASB 15 的應用指引 B39 也把 customer award credits（points）列為可能形成履約義務的客戶選項。Marriott 2025 年報進一步揭露，點數負債與 breakage 估計會直接影響遞延收入與認列時點。</div>
+      </section>
+
+      <section class="section" id="metro">
+        <div class="section-head"><div><div class="section-kicker">07 / APPLICATION TO METRO</div><h2>回到「從碳客變捷客」</h2></div><p>研究不是要把所有案例拼成一個更大的點數平台，而是找出北捷現在最有機會做成的最小閉環。</p></div>
+        <div class="decision-grid">
+          <div class="decision"><div class="label">RECOMMENDATION / 01</div><h3>第一階段：捷運點減碳加成</h3><p>以 Go App 會員、進出站資料與使用者 opt-in 偏好為基礎，針對低碳搭乘與站點生活情境給予捷運點加成或任務回饋。</p><ul><li>點數主體：既有捷運點，不另立泛綠點。</li><li>加成方式：依可配置碳係數、任務門檻與活動預算調整。</li><li>兌換方式：先做 App 內換券／QR 核銷，避免把 POS 串接當成 MVP 前提。</li></ul></div>
+          <div class="decision"><div class="label">RECOMMENDATION / 02</div><h3>北捷賣的是精準觸及</h3><p>商家購買的不是一包抽象點數，而是「某站出站、某個時間、對某種興趣有 opt-in 的會員」能看到並採取行動的方案。</p><ul><li>推薦排序：可用捷運點／可領捷運點／已合作或已購行銷方案，Google 評分只做輔助。</li><li>推播入口：出站後、週末行程、場館／親子／觀光／共享運具。</li><li>商家回報：觸及、開啟、點擊、換券、核銷、估算導客與點數消耗。</li></ul></div>
+        </div>
+        <div class="section-head" style="margin-top:38px"><div><div class="section-kicker">MVP EVIDENCE</div><h2 style="font-size:32px">Prototype 要證明的不是「有點數」</h2></div><p>而是這條鏈能否被使用者、北捷與合作商家同時理解。</p></div>
+        <div class="kpi-strip">
+          <div class="kpi"><strong>選擇偏好</strong><span>3 題內完成 opt-in</span></div><div class="kpi"><strong>收到推播</strong><span>站點＋時間＋興趣</span></div><div class="kpi"><strong>看懂回饋</strong><span>捷運點減碳加成</span></div><div class="kpi"><strong>完成行動</strong><span>換券／QR 核銷</span></div><div class="kpi"><strong>看見成效</strong><span>北捷與商家 dashboard</span></div>
+        </div>
+        <div class="card" style="margin-top:18px"><h3>建議放進決賽簡報的一句話</h3><p style="font-size:22px;line-height:1.5;color:var(--green-dark);font-weight:800;margin-top:8px">「我們不是再做一個集點系統，而是把捷運點變成低碳行動的回饋，把北捷既有會員觸及變成更精準、可衡量的站點行銷方案。」</p></div>
+      </section>
+
+      <section class="section" id="sources">
+        <div class="section-head"><div><div class="section-kicker">08 / SOURCES & METHOD</div><h2>來源與閱讀方式</h2></div><p>報告以 2026-07-22 可取得的公開頁面為研究截點；方案條款、活動與價格可能後續變更。</p></div>
+        <div class="grid grid-2">
+          <div class="card source-group"><h3>企業官方／制度來源</h3><ol class="sources">
+            <li><a href="https://www.openpoint.com.tw/cdn/about_point.html">OPENPOINT 點數說明</a><small>累點、折抵、兌商品、交換與歸戶</small></li>
+            <li><a href="https://ir.7-11.com.tw/taiwan/2912/annual/2025/20260429171726-1.pdf">President Chain Store 2025 Annual Report</a><small>OPENPOINT 與跨通路會員策略</small></li>
+            <li><a href="https://hamipoint.cht.com.tw/faq">Hami Point FAQ</a><small>得點、期限與會員使用方式</small></li>
+            <li><a href="https://hamipoint.cht.com.tw/transpoint?Source=APP">Hami Point 點數交換專區</a><small>跨點數交換、票券與服務場景</small></li>
+            <li><a href="https://terms2.line.me/tw_line_shopping_?country=TW&lang=zh-Hant">LINE 購物使用條款</a><small>合作夥伴、資格判定、贈點與資料</small></li>
+            <li><a href="https://page.line.me/linepoints.tw">LINE POINTS 台灣官方帳號</a><small>兌換與折抵對外說明</small></li>
+            <li><a href="https://www.starbucks.com.tw/rewards/catalog.jspx?m=new&p=app">Starbucks Taiwan 星禮程</a><small>累積、等級、回饋與期限</small></li>
+            <li><a href="https://www.starbucks.com.tw/faq/lineqa.jspx">星巴克 LINE 綁定 FAQ</a><small>依會員條件發送不同推播</small></li>
+            <li><a href="https://business.rakuten.com/">Rakuten Rewards for Business</a><small>Cash Back、資料、媒體、個人化與 targeting</small></li>
+            <li><a href="https://global.rakuten.com/corp/terms/">Rakuten Point Terms of Use</a><small>跨服務使用、發點與有效期</small></li>
+            <li><a href="https://marriott.gcs-web.com/static-files/90ac617a-ef5f-4438-97ec-2e7cf4f8a41e">Marriott 2025 Annual Report</a><small>聯名卡、點數負債、遞延收入、breakage</small></li>
+            <li><a href="https://www.marriott.com/loyalty/terms/default.mi">Marriott Bonvoy Program Terms</a><small>會員、賺點、兌換與夥伴規則</small></li>
+          </ol></div>
+          <div class="card source-group"><h3>會計與本案內部依據</h3><ol class="sources">
+            <li><a href="https://www.ifrs.org/issued-standards/list-of-standards/ifric-13-customer-loyalty-programmes/">IFRS Foundation：IFRIC 13 Customer Loyalty Programmes</a><small>說明 IFRIC 13 已由 IFRS 15 取代，以及點數作為額外商品／服務權利的背景。</small></li>
+            <li><a href="https://standards.aasb.gov.au/aasb-15-dec-2022">AASB 15 §B39–B43</a><small>公開可讀的 IFRS 15 等效規範文字；B39 明列 customer award credits（points）。</small></li>
+            <li><a href="https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/">IFRS 15 官方標準介紹</a><small>收入認列的核心原則與五步驟框架。</small></li>
+            <li><a href="workshop-discussion-notes.md">本案工作坊與點數討論整理</a><small>北捷輔導員回饋、prototype 調整方向與待確認事項；不是北捷正式公告。</small></li>
+          </ol><div class="callout" style="margin-top:22px;font-size:15px"><strong>研究限制：</strong>本報告不把工作坊口述的會員數、碳係數、點數價格或政策時程當成正式事實；那些數字仍應取得北捷書面確認後，才可放進決賽簡報的「現況數據」欄位。</div></div>
+        </div>
+        <p class="footnote">製作目的：作為「從碳客變捷客」提案與 prototype 的研究底稿。案例摘要為本報告作者依來源整理的分析，不代表各企業對本案的背書。建議在正式提案中保留來源連結與「待北捷確認」標籤。</p>
+        <p class="print-note">可用瀏覽器列印／另存為 PDF；手機版可左右滑動比較表。</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
