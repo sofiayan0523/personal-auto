@@ -23,6 +23,7 @@
 - 決賽提案 v2 Google Doc：`1wIR6SyXYyqJVXteGhcC-kcH68appxkIu30gKcIYjg8g`（工作坊調整版，v1→v2 對照表在文件開頭）。決賽簡報初稿 Google Slides：`1_MIRSbXIKBMvQkZTQPgr2GkFS6UrxYYh1440pvbjUEc`（15 頁，以 GWS DWD 用 Sofia 身份建立，可由 Slides 直接下載 .pptx）。
 - 線上投票作品圖三版視覺在 `personal-auto/assets/voting/`：A 扁平插畫、B 深色 App UI（gpt-image-1 中文小字亂碼已用 PIL + Noto Sans CJK 修補）、C 路線圖資訊圖表。AI 生圖中文小字易亂碼，可用 `/home/bafu/.local/share/fonts/noto-cjk/` 字型以 PIL 修補。
 - 點數商業模式研究報告已建立於 `personal-auto/points-business-model-report.html`：涵蓋 OPENPOINT、Hami Point、LINE POINTS、台灣星巴克、Rakuten、Marriott Bonvoy，以及 IFRS 15／點數負債與 breakage 風險；可作為捷運提案與 prototype 的研究底稿。
+- 共享經濟／健康減碳方向提案初稿已建立於 `personal-auto/metro-shared-health-proposal.html`；新版定位為「捷運健康共享生活圈」，以捷運點承接 U-Sport／U-Walk、YouBike、raingo、旅電／ChargeSPOT、亞尼克 YTM 與悠遊付第二階段合作場景；同檔使用 `assets/fonts/NotoSansCJKtc-MetroShared-*.woff2` 子集字型避免繁中缺字。
 
 ## Installed Skills
 
@@ -61,4 +62,4 @@
 
 
 ---
-_Last system refresh: 2026-07-22 04:37 UTC_
+_Last system refresh: 2026-07-23 06:05 UTC_
