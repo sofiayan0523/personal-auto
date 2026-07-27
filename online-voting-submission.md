@@ -36,7 +36,8 @@ https://sofiayan0523.github.io/from-carbon-to-metro/
 
 - 2026-07-27 已驗證 URL 可回應 `HTTP 200`。
 - 但 production 仍是較舊版本，尚未包含新版 `出站推播`、`U-Sport`、`YouBike`、`北捷／合作方 dashboard` 等內容，且仍可搜尋到舊詞 `綠點`。
-- 正式送件前需先將 `from-carbon-to-metro` 的開發分支合併到 `main`，再重新驗證 GitHub Pages production。
+- 2026-07-27 loop iteration 2 再驗證：`from-carbon-to-metro` 本地開發分支仍為 `ahead 6`，遠端分支停在 `4377d8b`，GitHub Pages `main` 停在 `54829e6`；因此公開連結仍未更新到五項新版 prototype 功能。
+- 本輪嘗試推送開發分支，但 GitHub API 驗證回 `401`，無法完成 push / PR 查詢。正式送件前需恢復 GitHub 認證，將開發分支推送並合併到 `main`，再重新驗證 GitHub Pages production。
 
 ## 圖片 Review
 
@@ -57,4 +58,12 @@ https://sofiayan0523.github.io/from-carbon-to-metro/
 - 若只選一張送件：建議選 A。
 - 若希望更像科技產品：選 B，但建議把介紹文案用生活化版本搭配，避免太像評審簡報。
 - 若主辦方頁面會把圖片縮很小：不要選 C 作主圖，因為 C 需要讀字，縮小後優勢會下降。
-- 下一輪需處理展示連結版本問題：確認 PR / branch 是否已推送，並在 merge 後重新測 production URL。
+- 下一輪需優先處理展示連結版本問題：修復 GitHub 認證後推送 `from-carbon-to-metro` 開發分支，確認或建立 PR，合併後重新測 production URL。
+
+## 送件檢查狀態
+
+| 欄位 | 狀態 | 備註 |
+|---|---|---|
+| 作品圖片 | 可送 review | A / B / C 三版皆為 `768x514px` RGB PNG；建議主投 A |
+| 作品介紹 | 可提交 | 主推 66 字、備用 65 字，皆符合 50–120 字 |
+| 作品展示連結 | 暫不可正式提交 | URL 可手機開啟，但仍是舊版 prototype；需完成 push / PR / merge / Pages 重驗 |

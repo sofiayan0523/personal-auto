@@ -28,7 +28,7 @@
 - 共享經濟／健康減碳方向提案已整理為台北捷運審閱版 `personal-auto/metro-shared-health-proposal.html`；定位為「捷運健康共享生活圈」，以捷運點承接 U-Sport／U-Walk、YouBike、raingo、旅電／ChargeSPOT、亞尼克 YTM 與悠遊付第二階段合作場景，已新增 ESG 敘事與首年財務試算（基準：合作金流 2,270 萬、支出 1,525 萬、可支應營運餘額 745 萬，待北捷確認）；文案已移除 v3／新版比較語氣；同檔使用 `assets/fonts/NotoSansCJKtc-MetroShared-*.woff2` 子集字型避免繁中缺字。
 - 捷運盃工作坊與後續點數討論整理於 `personal-auto/workshop-discussion-notes.md`；核心 pivot 是從「泛綠點」收斂為「捷運點減碳加成 + 精準推播導客 + 北捷可變現行銷方案」，並需改用北捷口述碳係數 104/75/29（待正式確認）。
 - 點數商業模式研究報告已建立於 `personal-auto/points-business-model-report.html`：涵蓋 OPENPOINT、Hami Point、LINE POINTS、台灣星巴克、Rakuten、Marriott Bonvoy，以及 IFRS 15／點數負債與 breakage 風險；可作為捷運提案與 prototype 的研究底稿。
-- 線上投票提交草稿在 `personal-auto/online-voting-submission.md`；三版 review 圖已輸出至 `personal-auto/assets/voting/online-voting/` 並符合 `768x514px`，目前建議主投 A 生活插畫版。繁中覆字可用 `/home/bafu/.local/share/fonts/noto-cjk/` 搭配 `ffmpeg drawtext`；GitHub Pages production 目前可 HTTP 200 但仍是舊版，送件前需 merge 最新 prototype 後重驗。
+- 線上投票提交草稿在 `personal-auto/online-voting-submission.md`；三版 review 圖已輸出至 `personal-auto/assets/voting/online-voting/` 並符合 `768x514px`，目前建議主投 A 生活插畫版，主推作品介紹 66 字、備用 65 字。GitHub Pages production 目前可 HTTP 200 但仍是舊版；`from-carbon-to-metro` 本地分支 ahead 6，且 2026-07-27 GitHub API 認證回 401，送件前需恢復認證、push/merge 最新 prototype 後重驗。
 - 北捷站內即時補給與空間租賃公開案例可分為甜點／餐飲自助機（亞尼克 YTM、Yo-Kai）、補電（旅電、ChargeSPOT 及充電線）、共享傘（raingo）、香氛試香機（TRICENT）、客製悠遊卡、珠寶禮品、手機線材／配件、智慧生活站、快閃櫃、快剪與小樹屋電話亭等；可包成「租賃廠商可被 Go App 推播／Go!Map 標記／捷運點券導客」的招商加值，但租賃點位自有行銷與第三方廣告需依北捷審查邊界標示。
 - 原版企劃書 `personal-auto/2026捷運盃黑客松_提案企劃書_綠點導航.docx` 的 ESG 內容集中在「綠點導航／碳足跡回饋／國泰世華 ESG 聯名／全市減碳量」；決賽口徑宜改掛到 AI 站點情境助理、捷運點減碳加成與北捷可衡量站點導客。
 - 決賽提案 v2 Google Doc：`1wIR6SyXYyqJVXteGhcC-kcH68appxkIu30gKcIYjg8g`（工作坊調整版，v1→v2 對照表在文件開頭）。決賽簡報初稿 Google Slides：`1_MIRSbXIKBMvQkZTQPgr2GkFS6UrxYYh1440pvbjUEc`（15 頁，以 GWS DWD 用 Sofia 身份建立，可由 Slides 直接下載 .pptx）。
@@ -71,4 +71,4 @@
 
 
 ---
-_Last system refresh: 2026-07-27 04:21 UTC_
+_Last system refresh: 2026-07-27 04:42 UTC_
