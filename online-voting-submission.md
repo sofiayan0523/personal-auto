@@ -16,9 +16,13 @@
 
 舊版三張（v1 A/B/C）保留於同目錄供對照，不再建議主投。
 
-### 作品介紹（v2 重寫，更口語、有行動呼籲）
+### 作品介紹（民眾投票版，搭配 v2-A 吉祥物與展示頁）
 
-主推版本，73 字（搭 v2-A / v2-B）：
+主推版本，73 字（搭 v2-A 吉祥物與民眾展示頁）：
+
+> 搭捷運也能賺好康！《從碳客變捷客》把日常通勤變成小任務：出站領沿線優惠、集捷運點換咖啡甜點，還能累積減碳加成。投我們一票，讓臺北的捷運生活更好玩！
+
+備用口語版，73 字（搭 v2-A / v2-B）：
 
 > 搭捷運還能賺？《從碳客變捷客》讓每趟通勤都有回饋：出站秒收沿線好康、集捷運點換咖啡甜點，順手減碳還能升級加成。你的日常通勤，就是讓臺北更綠的一票！
 
@@ -42,9 +46,11 @@ https://from-carbon-metro-vote.pages.dev/
 
 目前狀態：
 
-- 2026-07-27 loop iteration 3 已將最新版 prototype 部署到 Cloudflare Pages：`from-carbon-metro-vote.pages.dev`。
-- 已驗證穩定 URL 可回應 `HTTP/2 200`，且必要 vendor assets 正確回傳 `application/javascript`。
-- Browser fresh session 已通過互動 smoke test：首頁正常渲染，無 bundler error；可見 `104 g/km`、`75 g/km`、`每公里少排 29 g`、`3 題偏好 onboarding`、`U-Sport`、`YouBike`；點 `完成今天通勤` 後出現 `出站推播`，點 `打開推薦` 可進路線，點 `減碳` 可見 `北捷／合作方 dashboard`、`估算導客量`、`招商加值`。
+- 2026-07-27 已將展示策略改為「民眾版展示頁 + 同站內 prototype demo」：根目錄 `https://from-carbon-metro-vote.pages.dev/` 是 v2-A 吉祥物風格公開投票入口，互動 prototype 保留於 `https://from-carbon-metro-vote.pages.dev/demo/`。
+- 展示頁文案與 v2-A 圖一致，主打 `搭捷運，也能賺好康`、出站領沿線優惠、集捷運點換咖啡甜點與減碳加成。
+- 2026-07-27 已重新部署 Cloudflare Pages production；根目錄、`/demo/`、v2-A PNG、vendor JS、`llms.txt`、`agent.json` 均回 `HTTP 200`，手機 UA 檢查也通過。
+- Browser public smoke test 通過：根目錄可見 v2-A 展示頁與 `立即體驗 Demo`；`/demo/` 可完成 `完成今天通勤` -> `出站推播` -> `打開推薦` -> `路線` -> `減碳` dashboard。
+- `/demo/` 仍保留最新版 prototype：可見 `104 g/km`、`75 g/km`、`每公里少排 29 g`、`3 題偏好 onboarding`、`U-Sport`、`YouBike`；點 `完成今天通勤` 後出現 `出站推播`，點 `打開推薦` 可進路線，點 `減碳` 可見 `北捷／合作方 dashboard`、`估算導客量`、`招商加值`。
 - 舊詞 `綠點` / `綠章` 在公開頁可見文字中為 0。
 - 原 GitHub Pages 連結 `https://sofiayan0523.github.io/from-carbon-to-metro/` 仍可回應 `HTTP 200`，但目前仍是舊版；`from-carbon-to-metro` 本地開發分支仍為 `ahead 6`，遠端分支停在 `4377d8b`，GitHub Pages `main` 停在 `54829e6`。2026-07-27 GitHub API 認證仍回 `401 Bad credentials`，因此暫不建議用 GitHub Pages 作送件連結。
 
@@ -88,8 +94,8 @@ https://from-carbon-metro-vote.pages.dev/
 | 欄位 | 狀態 | 備註 |
 |---|---|---|
 | 作品圖片 | 可送 review | v2-A / v2-B / v2-C 三版皆為 `768x514px` RGB PNG；建議主投 v2-A 吉祥物版 |
-| 作品介紹 | 可提交 | 主推 73 字、情感版 76 字、短版 73 字，皆符合 50–120 字 |
-| 作品展示連結 | 可提交 | 建議使用 `https://from-carbon-metro-vote.pages.dev/`；已部署最新版 prototype 並通過公開 URL browser smoke test |
+| 作品介紹 | 可提交 | 民眾投票主推 73 字、口語版 73 字、情感版 76 字、短版 73 字，皆符合 50–120 字 |
+| 作品展示連結 | 可提交 | 建議使用 `https://from-carbon-metro-vote.pages.dev/`；根目錄為民眾版展示頁，`/demo/` 為同站內互動 prototype |
 
 ## v1 文案封存
 
