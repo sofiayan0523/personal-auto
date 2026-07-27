@@ -26,18 +26,19 @@
 
 ### 作品展示連結
 
-暫定提交連結：
+建議提交連結：
 
 ```text
-https://sofiayan0523.github.io/from-carbon-to-metro/
+https://from-carbon-metro-vote.pages.dev/
 ```
 
 目前狀態：
 
-- 2026-07-27 已驗證 URL 可回應 `HTTP 200`。
-- 但 production 仍是較舊版本，尚未包含新版 `出站推播`、`U-Sport`、`YouBike`、`北捷／合作方 dashboard` 等內容，且仍可搜尋到舊詞 `綠點`。
-- 2026-07-27 loop iteration 2 再驗證：`from-carbon-to-metro` 本地開發分支仍為 `ahead 6`，遠端分支停在 `4377d8b`，GitHub Pages `main` 停在 `54829e6`；因此公開連結仍未更新到五項新版 prototype 功能。
-- 本輪嘗試推送開發分支，但 GitHub API 驗證回 `401`，無法完成 push / PR 查詢。正式送件前需恢復 GitHub 認證，將開發分支推送並合併到 `main`，再重新驗證 GitHub Pages production。
+- 2026-07-27 loop iteration 3 已將最新版 prototype 部署到 Cloudflare Pages：`from-carbon-metro-vote.pages.dev`。
+- 已驗證穩定 URL 可回應 `HTTP/2 200`，且必要 vendor assets 正確回傳 `application/javascript`。
+- Browser fresh session 已通過互動 smoke test：首頁正常渲染，無 bundler error；可見 `104 g/km`、`75 g/km`、`每公里少排 29 g`、`3 題偏好 onboarding`、`U-Sport`、`YouBike`；點 `完成今天通勤` 後出現 `出站推播`，點 `打開推薦` 可進路線，點 `減碳` 可見 `北捷／合作方 dashboard`、`估算導客量`、`招商加值`。
+- 舊詞 `綠點` / `綠章` 在公開頁可見文字中為 0。
+- 原 GitHub Pages 連結 `https://sofiayan0523.github.io/from-carbon-to-metro/` 仍可回應 `HTTP 200`，但目前仍是舊版；`from-carbon-to-metro` 本地開發分支仍為 `ahead 6`，遠端分支停在 `4377d8b`，GitHub Pages `main` 停在 `54829e6`。2026-07-27 GitHub API 認證仍回 `401 Bad credentials`，因此暫不建議用 GitHub Pages 作送件連結。
 
 ## 圖片 Review
 
@@ -58,7 +59,7 @@ https://sofiayan0523.github.io/from-carbon-to-metro/
 - 若只選一張送件：建議選 A。
 - 若希望更像科技產品：選 B，但建議把介紹文案用生活化版本搭配，避免太像評審簡報。
 - 若主辦方頁面會把圖片縮很小：不要選 C 作主圖，因為 C 需要讀字，縮小後優勢會下降。
-- 下一輪需優先處理展示連結版本問題：修復 GitHub 認證後推送 `from-carbon-to-metro` 開發分支，確認或建立 PR，合併後重新測 production URL。
+- GitHub Pages 可在認證恢復後再補推 / PR / merge；但目前送件展示連結已可先用 Cloudflare Pages 版本。
 
 ## 送件檢查狀態
 
@@ -66,4 +67,4 @@ https://sofiayan0523.github.io/from-carbon-to-metro/
 |---|---|---|
 | 作品圖片 | 可送 review | A / B / C 三版皆為 `768x514px` RGB PNG；建議主投 A |
 | 作品介紹 | 可提交 | 主推 66 字、備用 65 字，皆符合 50–120 字 |
-| 作品展示連結 | 暫不可正式提交 | URL 可手機開啟，但仍是舊版 prototype；需完成 push / PR / merge / Pages 重驗 |
+| 作品展示連結 | 可提交 | 建議使用 `https://from-carbon-metro-vote.pages.dev/`；已部署最新版 prototype 並通過公開 URL browser smoke test |
