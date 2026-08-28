@@ -1,0 +1,1619 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>從碳客變捷客｜捷運健康共享生活圈提案</title>
+  <meta name="description" content="捷運健康共享生活圈提案：以北捷站點、Go App、捷運點、共享服務與健康減碳任務，建立可感知、可兌換、可衡量的城市低碳行動路徑。">
+  <style>
+    @font-face {
+      font-family: "MetroProposalSans";
+      src: url("assets/fonts/NotoSansCJKtc-MetroShared-Regular.woff2") format("woff2");
+      font-weight: 400 650;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "MetroProposalSans";
+      src: url("assets/fonts/NotoSansCJKtc-MetroShared-Bold.woff2") format("woff2");
+      font-weight: 700 900;
+      font-display: swap;
+    }
+
+    :root {
+      --ink: #182027;
+      --muted: #60707b;
+      --line: #d9e1e2;
+      --paper: #f6f4ee;
+      --panel: #fffdf7;
+      --white: #ffffff;
+      --green: #4f8a63;
+      --mint: #c1e1dc;
+      --blue: #2e52a0;
+      --sky: #dfeaf3;
+      --yellow: #d8b76a;
+      --orange: #ed5d29;
+      --pink: #f9c6c0;
+      --stone: #cec0a3;
+      --shadow: 0 18px 44px rgba(24, 32, 39, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(24, 32, 39, 0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(24, 32, 39, 0.035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 28px 28px;
+      font-family: "MetroProposalSans", "Noto Sans CJK TC", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--orange);
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(246, 244, 238, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+    }
+
+    .hero {
+      padding: 72px 0 58px;
+      background:
+        linear-gradient(115deg, rgba(193, 225, 220, 0.55), rgba(255, 253, 247, 0) 56%),
+        linear-gradient(0deg, rgba(216, 183, 106, 0.17), rgba(255, 253, 247, 0) 48%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: 64px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h1 span {
+      color: var(--orange);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: #2a343b;
+      font-size: 22px;
+      line-height: 1.58;
+      font-weight: 650;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 11px;
+      color: var(--muted);
+      background: rgba(255, 253, 247, 0.85);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .system-map {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .system-row {
+      display: grid;
+      grid-template-columns: 98px 1fr;
+      gap: 12px;
+      align-items: center;
+      min-height: 66px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .system-row b {
+      display: grid;
+      place-items: center;
+      min-height: 42px;
+      color: var(--white);
+      background: var(--blue);
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .system-row:nth-child(2) b {
+      background: var(--green);
+    }
+
+    .system-row:nth-child(3) b {
+      background: var(--orange);
+    }
+
+    .system-row:nth-child(4) b {
+      color: var(--ink);
+      background: var(--yellow);
+    }
+
+    .system-row span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    main {
+      padding-bottom: 78px;
+    }
+
+    .section {
+      padding-top: 70px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 430px);
+      gap: 30px;
+      align-items: end;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-kicker {
+      margin-bottom: 6px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: 42px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      min-width: 0;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+      line-height: 1.35;
+    }
+
+    .card p,
+    .card li {
+      color: #3f4c54;
+      font-size: 15px;
+    }
+
+    .card p:last-child,
+    .card ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .num {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 12px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 6px;
+      font-weight: 900;
+    }
+
+    .callout {
+      padding: 22px;
+      color: var(--white);
+      background: var(--green);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .callout h3 {
+      margin-bottom: 8px;
+      font-size: 26px;
+    }
+
+    .callout p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 17px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 0.9fr 1.2fr 1.2fr;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .compare > div {
+      padding: 20px;
+      border-right: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .compare > div:last-child {
+      border-right: 0;
+    }
+
+    .compare .head {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .compare h3 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .compare ul {
+      margin: 0;
+      padding-left: 19px;
+    }
+
+    .compare li {
+      margin-top: 6px;
+      color: #3f4c54;
+      font-size: 14px;
+    }
+
+    .compare .head li {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .route {
+      display: grid;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .route-row {
+      display: grid;
+      grid-template-columns: 160px repeat(5, minmax(0, 1fr));
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .route-row:last-child {
+      border-bottom: 0;
+    }
+
+    .route-label {
+      display: grid;
+      align-content: center;
+      padding: 18px;
+      color: var(--white);
+      background: var(--ink);
+      font-weight: 900;
+    }
+
+    .route-cell {
+      position: relative;
+      padding: 18px 16px;
+      min-height: 132px;
+      border-left: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .route-cell::before {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      margin-bottom: 12px;
+      background: var(--green);
+      border: 4px solid var(--mint);
+      border-radius: 50%;
+    }
+
+    .route-cell.power::before {
+      background: var(--orange);
+      border-color: var(--pink);
+    }
+
+    .route-cell.health::before {
+      background: var(--blue);
+      border-color: var(--sky);
+    }
+
+    .route-cell.share::before {
+      background: var(--yellow);
+      border-color: var(--stone);
+    }
+
+    .route-cell b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .route-cell span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .phone-wrap {
+      display: grid;
+      grid-template-columns: minmax(270px, 360px) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .phone {
+      min-height: 680px;
+      padding: 18px;
+      color: var(--ink);
+      background: #151b21;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .screen {
+      height: 100%;
+      padding: 18px;
+      background: #f7faf7;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .statusbar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .app-title {
+      margin-bottom: 12px;
+      font-size: 23px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .app-card {
+      margin-bottom: 10px;
+      padding: 14px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .app-card strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 14px;
+    }
+
+    .app-card span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .app-card.feature {
+      color: var(--white);
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .app-card.feature span {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      padding: 4px 8px;
+      color: var(--green);
+      background: rgba(193, 225, 220, 0.6);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .spec-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .spec {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .spec b {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      color: var(--white);
+      background: var(--orange);
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .spec:nth-child(2n) b {
+      background: var(--green);
+    }
+
+    .spec h3 {
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .spec p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .mechanism {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .step {
+      position: relative;
+      min-height: 190px;
+      padding: 20px;
+      background: var(--panel);
+      border-right: 1px solid var(--line);
+    }
+
+    .step:last-child {
+      border-right: 0;
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      top: 32px;
+      right: -7px;
+      z-index: 2;
+      width: 14px;
+      height: 14px;
+      background: var(--yellow);
+      transform: rotate(45deg);
+    }
+
+    .step:last-child::after {
+      display: none;
+    }
+
+    .step small {
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 14px 0 8px;
+      font-size: 18px;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 14px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      padding: 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--blue);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 10px;
+      overflow: hidden;
+      background: var(--sky);
+      border-radius: 999px;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      background: var(--green);
+      border-radius: 999px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--white);
+      background: var(--ink);
+      font-weight: 900;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    td:first-child {
+      color: var(--green);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .sources {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .sources li {
+      margin: 0 0 9px;
+      color: #3f4c54;
+      font-size: 13px;
+      break-inside: avoid;
+    }
+
+    .sources small {
+      display: block;
+      color: var(--muted);
+    }
+
+    .note {
+      padding: 18px;
+      color: #4c3b1b;
+      background: #fff6dc;
+      border: 1px solid rgba(216, 183, 106, 0.7);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-head,
+      .phone-wrap,
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      h2 {
+        font-size: 34px;
+      }
+
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare,
+      .route-row,
+      .mechanism {
+        grid-template-columns: 1fr;
+      }
+
+      .compare > div,
+      .route-cell,
+      .step {
+        border-right: 0;
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .compare > div:last-child,
+      .route-row:last-child .route-cell:last-child,
+      .step:last-child {
+        border-bottom: 0;
+      }
+
+      .route-row {
+        border-bottom: 0;
+      }
+
+      .route-label {
+        min-height: 58px;
+      }
+
+      .step::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        min-height: 82px;
+        padding: 12px 0;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .hero {
+        padding: 48px 0 44px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      h2 {
+        font-size: 29px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      .section {
+        padding-top: 52px;
+      }
+
+      .card,
+      .callout {
+        padding: 18px;
+      }
+
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
+      }
+    }
+
+    @media print {
+      body {
+        background: var(--paper);
+      }
+
+      .topbar {
+        position: static;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero,
+      .section {
+        padding-top: 28px;
+      }
+
+      .card,
+      .callout,
+      .system-map,
+      .route,
+      .mechanism,
+      table {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="brand"><span class="brand-mark">M</span><span>從碳客變捷客</span></div>
+      <nav class="nav" aria-label="頁面導覽">
+        <a href="#summary">摘要</a>
+        <a href="#esg">ESG</a>
+        <a href="#pivot">提案定位</a>
+        <a href="#ecosystem">合作生態</a>
+        <a href="#prototype">Prototype</a>
+        <a href="#business">商業模式</a>
+        <a href="#roadmap">落地路線</a>
+        <a href="#sources">來源</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <p class="eyebrow">Final proposal · 2026-07-24 · 台北捷運審閱版</p>
+        <h1>把捷運點變成<br><span>健康共享生活圈</span><br>的入口</h1>
+        <p class="lead">本提案以北捷站點與 Go App 為入口，串聯捷運點、悠遊卡／悠遊付生活圈、共享服務、U-Sport 與 YouBike，建立一條可感知、可兌換、可衡量的城市健康低碳行動路徑。</p>
+        <div class="meta-row">
+          <span class="pill">主軸：共享經濟</span>
+          <span class="pill">主軸：健康減碳</span>
+          <span class="pill">點數主體：捷運點</span>
+          <span class="pill">交付：審閱版 HTML 提案</span>
+        </div>
+      </div>
+
+      <div class="system-map" aria-label="捷運健康共享生活圈系統圖">
+        <div class="system-row"><b>搭乘</b><span>Go App 會員、進出站紀錄、路線與時間情境，建立低碳移動的基本訊號。</span></div>
+        <div class="system-row"><b>健康</b><span>U-Sport、U-Walk、運動中心與步行任務，把「多走、多動」變成可回饋的城市行動。</span></div>
+        <div class="system-row"><b>共享</b><span>YouBike、共享傘、共享行動電源、智慧生活站租賃服務與站內即時補給，補上捷運旅程的最後一哩與臨時需求。</span></div>
+        <div class="system-row"><b>兌換</b><span>捷運點、優惠券、QR 核銷與悠遊付第二階段合作，讓行動能被使用者立即理解。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="shell">
+    <section class="section" id="summary">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">01 / Executive Summary</div>
+          <h2>提案一句話</h2>
+        </div>
+        <p>捷運健康共享生活圈以北捷交通場站為基礎，把共享服務、健康行動與捷運點回饋整合為可落地的會員經營方案。</p>
+      </div>
+
+      <div class="callout">
+        <h3>捷運健康共享生活圈</h3>
+        <p>使用者搭捷運進入城市生活節點，Go App 依站點、天氣、時間、健康任務與 opt-in 偏好，推薦最適合的共享服務、運動場館、YouBike 接駁、站內租賃服務或即時補給；完成低碳健康任務後，以捷運點減碳加成、優惠券或 QR 核銷回饋，北捷則取得可變現的站點觸及與活動成效資料。</p>
+      </div>
+
+      <div class="grid grid-4" style="margin-top:14px">
+        <article class="card">
+          <span class="num">1</span>
+          <h3>捷運點為第一階段主體</h3>
+          <p>第一階段使用既有捷運點承接任務回饋，減碳與健康作為「加成條件」與「任務主題」，維持使用者熟悉的點數制度。</p>
+        </article>
+        <article class="card">
+          <span class="num">2</span>
+          <h3>站點任務主導推薦</h3>
+          <p>推薦標的涵蓋共享傘、行動電源、YouBike、運動場館、智慧生活站、快閃櫃、快剪、站內補給與既有捷運點合作商家，讓推薦內容貼近站點旅程與即時需求。</p>
+        </article>
+        <article class="card">
+          <span class="num">3</span>
+          <h3>以 opt-in 情境資料個人化</h3>
+          <p>個人化來自進出站生活圈、站點情境、天氣、時間與使用者自選偏好；消費偏好和跨平台交易可作為第二階段合作資料。</p>
+        </article>
+        <article class="card">
+          <span class="num">4</span>
+          <h3>MVP 採 QR 核銷與 dashboard</h3>
+          <p>MVP 以 App 內換券、QR code 核銷、任務完成紀錄與 dashboard 展示價值；深度支付串接與對帳可於後續階段擴充。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="esg">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">02 / ESG Narrative</div>
+          <h2>把減碳、健康與治理變成可衡量的捷運行動</h2>
+        </div>
+        <p>本案的 ESG 敘事不依賴額外宣傳口號，而是把北捷既有的低碳運輸角色延伸到共享服務、健康任務、資料治理與合作成效揭露。</p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="num">E</span>
+          <h3>Environmental：低碳移動與共享減廢</h3>
+          <p>以捷運搭乘為核心，串聯步行、YouBike、共享傘與共享行動電源，讓使用者在既有旅程中完成更低碳的接駁與臨時需求補給。</p>
+          <ul>
+            <li>捷運點加成對應低碳搭乘、步行、YouBike 接駁與共享任務。</li>
+            <li>共享傘與行動電源降低一次性雨具、臨時購買與閒置設備浪費。</li>
+            <li>碳係數維持可配置，待北捷正式確認後納入 dashboard 與活動報表。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="num">S</span>
+          <h3>Social：健康生活與城市可近性</h3>
+          <p>Go App 把「搭捷運去運動、步行到場館、騎 YouBike 接駁」設計成低門檻任務，讓健康行動發生在日常通勤與週末生活圈。</p>
+          <ul>
+            <li>U-Sport、U-Walk、運動中心與公共場館可作為健康任務節點。</li>
+            <li>站點、天氣、時間與使用者自選偏好，讓提醒更貼近實際需求。</li>
+            <li>任務設計可涵蓋親子、觀光、運動、補給與雨天備案等多種城市使用情境。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="num">G</span>
+          <h3>Governance：資料、成本與成效治理</h3>
+          <p>本案把資料授權、點數預算與合作成效放進 MVP 設計，讓北捷在導入前即可審視成本邊界、資料邊界與對外揭露方式。</p>
+          <ul>
+            <li>進出站資料、健康偏好與通知推播均採 opt-in 與資料最小化原則。</li>
+            <li>點數加成、券量與任務名額設定上限，控制為可預算化活動成本。</li>
+            <li>dashboard 以統計報表呈現觸及、互動、核銷、任務完成與公共價值成果。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="note" style="margin-top:14px">
+        <strong>ESG 對北捷的意義：</strong>捷運健康共享生活圈讓北捷把既有運輸服務延伸為可被衡量的永續會員經營：環境面回到低碳與共享，社會面回到健康與城市服務可近性，治理面回到資料授權、點數成本與成效揭露。
+      </div>
+    </section>
+
+    <section class="section" id="pivot">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">03 / Proposal Positioning</div>
+          <h2>健康共享任務設計</h2>
+        </div>
+        <p>捷運點在本案中承擔明確的行為任務：鼓勵低碳移動、健康運動、共享服務使用與站點生活圈導流，形成使用者、北捷與合作方都能理解的行為閉環。</p>
+      </div>
+
+      <div class="compare">
+        <div class="head">
+          <h3>01 站點即場景</h3>
+          <ul>
+            <li>以使用者實際搭乘、出站、時間、天氣與路線作為推薦基礎。</li>
+            <li>站內服務、站外接駁、運動場館與公共場館都可成為任務節點。</li>
+            <li>北捷既有 Go App、Go!Map 與捷運點地圖是第一階段入口。</li>
+            <li>每個推薦都回到「此站、此時、此需求」的城市情境。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>02 任務即誘因</h3>
+          <ul>
+            <li>用健康任務、共享任務與低碳行程設計引導行動。</li>
+            <li>捷運點加成、優惠券、抽獎資格與任務章提供可感知回饋。</li>
+            <li>任務條件可設定名額、時間、站點與預算上限。</li>
+            <li>完成流程以 App 換券、QR 核銷與任務完成紀錄呈現。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>03 成效即產品</h3>
+          <ul>
+            <li>合作方可購買特定站點、時段、偏好會員的精準觸及。</li>
+            <li>dashboard 呈現曝光、開啟、點擊、換券、核銷與任務完成。</li>
+            <li>北捷可把共享服務導流、健康低碳活動與會員經營包裝成合作方案。</li>
+            <li>資料治理以 opt-in、統計報表、活動層級成效為基本邊界。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ecosystem">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">04 / Ecosystem Map</div>
+          <h2>北捷可以優先串起的生活圈</h2>
+        </div>
+        <p>以下依公開資料與現有場景整理第一階段可討論的合作地圖，協助北捷評估站點任務、合作導流與第二階段串接優先順序。</p>
+      </div>
+
+      <div class="route" aria-label="捷運健康共享生活圈路線圖">
+        <div class="route-row">
+          <div class="route-label">站內即時補給</div>
+          <div class="route-cell"><b>亞尼克 YTM</b><span>北捷站內甜點販賣機適合作為「出站即取」與活動回饋場景。</span></div>
+          <div class="route-cell power"><b>旅電科技</b><span>官方頁面顯示台北捷運全線設點，可 A 地借 B 地還。</span></div>
+          <div class="route-cell power"><b>ChargeSPOT</b><span>共享行動電源可作為跨商圈補電服務，並支援悠遊付等支付方式。</span></div>
+          <div class="route-cell share"><b>raingo 共享傘</b><span>雨天出站情境最直覺，符合共享循環與減少一次性雨具。</span></div>
+          <div class="route-cell"><b>捷運點地圖</b><span>Go!Map 的累點／銷點地圖是第一階段最直接的用點基礎。</span></div>
+        </div>
+        <div class="route-row">
+          <div class="route-label">站內空間租賃</div>
+          <div class="route-cell"><b>智慧生活站</b><span>物流取物櫃、自動販賣機與電子商務機具，可承接 O2O 取貨、優惠券與點數兌換。</span></div>
+          <div class="route-cell"><b>快閃櫃</b><span>北捷公告可公開申請，並要求搭配捷運點特約商店、商品券或折價券導客。</span></div>
+          <div class="route-cell health"><b>快剪服務</b><span>站內或出口旁的快剪店適合午休、轉乘與下班前後的短時間服務推播。</span></div>
+          <div class="route-cell power"><b>小樹屋電話亭</b><span>中山站微型時租空間可服務臨時會議、線上課程、面試與商務空檔。</span></div>
+          <div class="route-cell share"><b>站內廣告加值</b><span>租賃點位可搭配 Go App、Go!Map、捷運點券與站內版位，形成可衡量招商包。</span></div>
+        </div>
+        <div class="route-row">
+          <div class="route-label">健康低碳行動</div>
+          <div class="route-cell health"><b>U-Sport</b><span>每日入場運動集點與 U-Walk 可作為健康任務合作想像。</span></div>
+          <div class="route-cell health"><b>運動中心</b><span>捷運到站後步行到運動場館，完成掃碼或任務領回饋。</span></div>
+          <div class="route-cell share"><b>YouBike</b><span>捷運後 1-2 公里接駁，對齊北市綠運輸與 30 分鐘補助政策。</span></div>
+          <div class="route-cell health"><b>步行任務</b><span>出站後步行到場館或商圈，讓健康與減碳同時被感知。</span></div>
+          <div class="route-cell"><b>公共場館</b><span>展覽、親子、文化、運動，比單純餐飲優惠更貼近城市公共價值。</span></div>
+        </div>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:14px">
+        <article class="card">
+          <h3>為什麼共享服務適合北捷？</h3>
+          <p>共享傘、共享行動電源與 YouBike 補足捷運旅程中的臨時需求。北捷可以把站點變成城市共享服務的入口，讓服務發生在使用者最需要的出站時刻。</p>
+        </article>
+        <article class="card">
+          <h3>為什麼健康適合市府敘事？</h3>
+          <p>U-Sport 與 YouBike 都有明確的市政公共價值。把捷運點加成綁到「搭捷運去運動、走路、騎 YouBike」比單純折扣更容易成為決賽亮點。</p>
+        </article>
+        <article class="card">
+          <h3>為什麼悠遊付是第二階段？</h3>
+          <p>悠遊付和悠遊卡生活圈能降低重新談店家的成本，但北捷與悠遊卡公司仍是不同法人。第一階段以合作路徑、換券與核銷流程展示價值，即時支付串接可列為後續擴充。</p>
+        </article>
+        <article class="card">
+          <h3>為什麼空間租賃是商業槓桿？</h3>
+          <p>智慧生活站、快閃櫃、快剪與共享辦公等站內租戶，本來就需要站點人流與導客成效。本案可把租金之外的 Go App 推播、捷運點券、Go!Map 標記與站內廣告版位包成招商加值服務。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">05 / User Scenarios</div>
+          <h2>四個示範使用場景</h2>
+        </div>
+        <p>示範流程聚焦「站點情境 → 推薦 → 任務 → 回饋 → 成效」的完整鏈條，讓北捷能評估第一階段 MVP 與後續合作串接的實際價值。</p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>場景 A：下班健康任務</h3>
+          <p>使用者從捷運出站，Go App 推播：「今天離 U-Walk 目標還差 2,000 步，步行 9 分鐘到運動中心，完成入場可解鎖本月捷運點減碳加成。」</p>
+          <ul>
+            <li>資料：出站站點、時間、opt-in 健康偏好。</li>
+            <li>回饋：捷運點加成或運動場館優惠券。</li>
+            <li>證明：任務完成、步行里程、減碳量、點數成本上限。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>場景 B：雨天共享接力</h3>
+          <p>使用者抵達捷運站遇雨，App 推播：「本站出口有 raingo 共享傘；完成甲站借乙站還，今天共享任務可累積 1 次。」</p>
+          <ul>
+            <li>資料：天氣、站點、出站方向、共享傘供給狀態。</li>
+            <li>回饋：共享任務章、捷運點抽獎或借傘券。</li>
+            <li>證明：共享服務曝光、租借導流、一次性雨具替代敘事。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>場景 C：週末低碳生活圈</h3>
+          <p>使用者選擇「週末健康減碳」，App 建議「捷運到大安森林公園站 + YouBike 10 分鐘 + 亞尼克站內補給」，並顯示可領／可用捷運點。</p>
+          <ul>
+            <li>資料：週末模式、興趣偏好、Go!Map 合作點、YouBike 站點。</li>
+            <li>回饋：完成整段行程後領取點數加成或合作券。</li>
+            <li>證明：路線完成率、合作服務點擊、換券與核銷。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>場景 D：轉乘空檔服務</h3>
+          <p>使用者在中山站有 35 分鐘空檔，App 推播：「本站有小樹屋電話亭可預約，附近快閃櫃今日可用捷運點換券；若下班前想整理造型，沿線站內快剪店尚有低等待時段。」</p>
+          <ul>
+            <li>資料：轉乘時間、站點租賃服務、會員偏好與空檔長度。</li>
+            <li>回饋：捷運點券、試用券、指定時段優惠或站內導購任務。</li>
+            <li>證明：預約、到店、換券、核銷與租戶導客成效。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="prototype">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">06 / Prototype Feature Spec</div>
+          <h2>Prototype 功能規格</h2>
+        </div>
+        <p>Prototype 優先展示使用者旅程與北捷可變現邏輯，以示範資料完整呈現任務、換券、核銷與 dashboard；第三方 API 即時串接列為第二階段擴充。</p>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone" aria-label="App prototype 示意">
+          <div class="screen">
+            <div class="statusbar"><span>09:42</span><span>Metro Go</span></div>
+            <div class="app-title">今日健康共享任務</div>
+            <div class="app-card feature">
+              <strong>中山站出站任務</strong>
+              <span>步行 8 分鐘到運動中心，完成入場可累積 1 次健康減碳任務。</span>
+              <div class="chips"><span class="chip">捷運點加成</span><span class="chip">U-Sport</span><span class="chip">步行</span></div>
+            </div>
+            <div class="app-card">
+              <strong>雨天備案</strong>
+              <span>4 號出口有共享傘租借點，完成 A 借 B 還可集共享任務章。</span>
+              <div class="chips"><span class="chip">raingo</span><span class="chip">共享</span></div>
+            </div>
+            <div class="app-card">
+              <strong>手機快沒電？</strong>
+              <span>站內旅電機台可掃碼租借；附近商圈另有 ChargeSPOT。</span>
+              <div class="chips"><span class="chip">行動電源</span><span class="chip">悠遊付</span></div>
+            </div>
+            <div class="app-card">
+              <strong>轉乘空檔</strong>
+              <span>中山站有小樹屋電話亭可預約，沿線快剪與快閃櫃可用捷運點換券。</span>
+              <div class="chips"><span class="chip">空間租賃</span><span class="chip">快閃櫃</span></div>
+            </div>
+            <div class="app-card">
+              <strong>本月進度</strong>
+              <span>低碳搭乘 12 趟，健康任務 3 次，共享任務 2 次。再完成 1 次可解鎖本月加成。</span>
+            </div>
+            <div class="app-card">
+              <strong>可用捷運點</strong>
+              <span>Go!Map 銷點地圖：附近 3 個合作點可 1 點折 1 元或換券。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-list">
+          <div class="spec">
+            <b>01</b>
+            <div>
+              <h3>偏好 onboarding：以任務意圖完成設定</h3>
+              <p>三題內完成：健康運動、雨天備案、補電、甜點補給、快剪、快閃櫃、親子場館、YouBike 接駁。明確 opt-in 使用進出站資料與通知偏好。</p>
+            </div>
+          </div>
+          <div class="spec">
+            <b>02</b>
+            <div>
+              <h3>今日任務首頁：健康減碳儀表板</h3>
+              <p>顯示本日搭乘、步行、YouBike、共享服務任務進度；碳係數維持可配置，待北捷正式確認後套用於示範版本。</p>
+            </div>
+          </div>
+          <div class="spec">
+            <b>03</b>
+            <div>
+              <h3>出站情境推播：站點、天氣、時間、偏好四層判斷</h3>
+              <p>例如雨天優先共享傘、手機低電量情境優先行動電源、下班時段推 U-Sport 場館、轉乘空檔推快剪、電話亭、快閃櫃或電子商務取物服務。</p>
+            </div>
+          </div>
+          <div class="spec">
+            <b>04</b>
+            <div>
+              <h3>合作卡片：清楚標示可用狀態</h3>
+              <p>每張卡片標示「可用捷運點」「可領捷運點」「可換券」「共享任務」「健康任務」「站內租賃服務」「第二階段悠遊付合作」等狀態。</p>
+            </div>
+          </div>
+          <div class="spec">
+            <b>05</b>
+            <div>
+              <h3>兌換與核銷：App 換券 + QR code</h3>
+              <p>MVP 以 QR 核銷與後台對帳流程呈現，店家 POS 即時折抵可於第二階段依合作方能力擴充。</p>
+            </div>
+          </div>
+          <div class="spec">
+            <b>06</b>
+            <div>
+              <h3>北捷／合作方 dashboard</h3>
+              <p>以示範數據呈現觸及、開啟、點擊、任務完成、換券、核銷、捷運點消耗、估算導客與健康減碳成果。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">07 / Reward Mechanism</div>
+          <h2>點數機制：用捷運點承接健康、共享與租賃導客任務</h2>
+        </div>
+        <p>點數研究的核心提醒是：先設計行為，再決定發點。本案聚焦低碳移動、健康運動、共享服務使用與站內租賃導客，讓捷運點回饋對應到可衡量的城市行動。</p>
+      </div>
+
+      <div class="mechanism">
+        <div class="step">
+          <small>STEP 1</small>
+          <h3>觸發</h3>
+          <p>使用者搭乘捷運、出站、靠近共享服務或選擇健康任務。</p>
+        </div>
+        <div class="step">
+          <small>STEP 2</small>
+          <h3>判斷</h3>
+          <p>Go App 以站點、時間、天氣、任務進度與 opt-in 偏好選出推薦。</p>
+        </div>
+        <div class="step">
+          <small>STEP 3</small>
+          <h3>行動</h3>
+          <p>步行到場館、租借共享傘／行動電源、騎 YouBike、預約站內服務或使用捷運點換券。</p>
+        </div>
+        <div class="step">
+          <small>STEP 4</small>
+          <h3>回饋</h3>
+          <p>完成任務後給捷運點加成、優惠券、抽獎資格或任務章，並設預算上限。</p>
+        </div>
+        <div class="step">
+          <small>STEP 5</small>
+          <h3>衡量</h3>
+          <p>回收開啟率、點擊率、核銷、導客、任務完成與點數消耗，提供合作方案定價依據。</p>
+        </div>
+      </div>
+
+      <table style="margin-top:14px">
+        <thead>
+          <tr>
+            <th>任務類型</th>
+            <th>使用者行為</th>
+            <th>回饋方式</th>
+            <th>成本控制</th>
+            <th>資料治理</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>健康減碳</td>
+            <td>搭捷運出站後步行到 U-Sport 合作場館或完成 U-Walk 目標。</td>
+            <td>捷運點加成、場館券、健康任務章。</td>
+            <td>每月上限、活動名額、合作補貼。</td>
+            <td>健康資料需明確 opt-in；prototype 可先模擬完成狀態。</td>
+          </tr>
+          <tr>
+            <td>共享服務</td>
+            <td>租借／歸還共享傘、行動電源，或騎 YouBike 完成接駁。</td>
+            <td>共享任務章、借用折抵券、抽獎資格。</td>
+            <td>以券量控制，不先承諾點對點現金補貼。</td>
+            <td>以事件紀錄或合作方回傳為後續階段；MVP 用 QR 核銷。</td>
+          </tr>
+          <tr>
+            <td>站內補給</td>
+            <td>使用亞尼克 YTM 或其他站內合作服務。</td>
+            <td>捷運點折抵、換券、指定時段優惠。</td>
+            <td>由商家購買曝光／導流方案或提供券。</td>
+            <td>只回傳核銷與活動成效統計，不販售個人消費資料。</td>
+          </tr>
+          <tr>
+            <td>空間租賃導客</td>
+            <td>預約小樹屋、使用快剪、快閃櫃、智慧生活站取貨或電子商務機具。</td>
+            <td>會員專屬券、捷運點兌換、指定站點推播或 Go!Map 標記。</td>
+            <td>由租賃廠商購買加值推播與站點導客包，不直接補貼租金。</td>
+            <td>廣告與行銷素材需經北捷審查；租賃空間不作未授權第三方廣告。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="business">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">08 / Business Model</div>
+          <h2>北捷為什麼要做？</h2>
+        </div>
+        <p>本案把站點會員觸及、共享服務導流、空間租賃導客與健康低碳任務包裝成可衡量、可估算、可控管的合作金流，讓捷運點成為會員經營、招商加值與活動成效管理工具。</p>
+      </div>
+
+      <div class="dashboard">
+        <div class="card">
+          <h3>北捷可銷售的四種方案</h3>
+          <div class="bar-list">
+            <div class="bar-row"><b>站點即時補給方案</b><span class="bar-track"><span class="bar-fill" style="width:86%"></span></span><span>對亞尼克、旅電、共享傘、行動電源等服務，銷售站點出站觸及與換券導流。</span></div>
+            <div class="bar-row"><b>空間租賃導客方案</b><span class="bar-track"><span class="bar-fill" style="width:80%; background: var(--yellow)"></span></span><span>對智慧生活站、快閃櫃、快剪、小樹屋等站內租戶，銷售 Go App 推播、Go!Map 標記、會員券與站內版位加值。</span></div>
+            <div class="bar-row"><b>健康減碳任務方案</b><span class="bar-track"><span class="bar-fill" style="width:74%; background: var(--blue)"></span></span><span>與 U-Sport、運動中心、場館合作，包裝公共價值與會員任務。</span></div>
+            <div class="bar-row"><b>悠遊付生活圈方案</b><span class="bar-track"><span class="bar-fill" style="width:58%; background: var(--orange)"></span></span><span>第二階段與悠遊付既有商店網絡談兌換、核銷、支付或會員活動。</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Dashboard 要讓合作方看到什麼</h3>
+          <div class="metric-grid">
+            <div class="metric"><strong>觸及</strong><span>特定站點、時段、偏好會員曝光</span></div>
+            <div class="metric"><strong>互動</strong><span>推播開啟、卡片點擊、導航啟動</span></div>
+            <div class="metric"><strong>轉換</strong><span>換券、QR 核銷、共享租借導流</span></div>
+            <div class="metric"><strong>消耗</strong><span>捷運點使用、加成預算、券量上限</span></div>
+            <div class="metric"><strong>公共價值</strong><span>步行、YouBike、低碳行程與健康任務</span></div>
+            <div class="metric"><strong>再投放</strong><span>哪個站點、哪類任務、哪種券最有效</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:38px">
+        <div>
+          <div class="section-kicker">Financial Model</div>
+          <h2 style="font-size:32px">三方金流與首年試算</h2>
+        </div>
+        <p>金額以「合作方案費、任務回饋池、ESG／健康共創、App 版位」估算合作金流；點數回饋、資料治理與維運成本則列為可設定上限的履約與營運支出。</p>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>類別</th>
+            <th>估算方式</th>
+            <th>首年試算</th>
+            <th>說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>收入：站點健康共享合作包</td>
+            <td>20 個合作包／月 × NTD 50,000 × 12 個月</td>
+            <td>NTD 1,200 萬</td>
+            <td>合作包包含站點曝光、推播觸及、任務設計、QR 核銷與 dashboard 報表。</td>
+          </tr>
+          <tr>
+            <td>收入：任務回饋池合作金流</td>
+            <td>37,500 次任務／月 × 5 點 × NTD 1.2 × 12 個月</td>
+            <td>NTD 270 萬</td>
+            <td>以基準情境估算：25 萬 MAU、10% opt-in、每人每月完成 1.5 次任務；其中點數面額約 NTD 225 萬為使用者回饋履約。</td>
+          </tr>
+          <tr>
+            <td>收入：ESG／健康品牌共創</td>
+            <td>2 案 × NTD 250 萬</td>
+            <td>NTD 500 萬</td>
+            <td>適合金融、健康、共享運具、保險或企業永續專案，以低碳健康任務與成效報表作為合作主軸。</td>
+          </tr>
+          <tr>
+            <td>收入：App、Go!Map 與租賃加值版位</td>
+            <td>首頁任務卡、地圖標記、站點推薦版位</td>
+            <td>NTD 300 萬</td>
+            <td>保留既有 App 版位量級，並納入智慧生活站、快閃櫃、快剪與站內租賃廠商的推播、換券與站點導客加值；不把既有空間租金重複計入本試算。</td>
+          </tr>
+          <tr>
+            <td>支出：任務回饋履約</td>
+            <td>37,500 次任務／月 × 5 點 × NTD 1 × 12 個月</td>
+            <td>NTD 225 萬</td>
+            <td>以使用者端 1 點約 NTD 1 的感知價值估算，實際點值與會計處理需由北捷確認。</td>
+          </tr>
+          <tr>
+            <td>支出：北捷自有補貼預算</td>
+            <td>NTD 50 萬／月 × 12 個月</td>
+            <td>NTD 600 萬</td>
+            <td>用於捷運點加成、抽獎、示範站點活動與合作方未補貼的公共任務，透過名額、時段與月上限控管。</td>
+          </tr>
+          <tr>
+            <td>支出：資料治理與 dashboard</td>
+            <td>年度模組費</td>
+            <td>NTD 200 萬</td>
+            <td>包含 opt-in 紀錄、資料最小化、活動報表、權限控管與稽核紀錄。</td>
+          </tr>
+          <tr>
+            <td>支出：AI 模型與系統維運</td>
+            <td>年度維運費</td>
+            <td>NTD 300 萬</td>
+            <td>包含推薦規則、任務判斷、系統監控、資料管線與 API ready 後台維護。</td>
+          </tr>
+          <tr>
+            <td>支出：合作營運與客服</td>
+            <td>活動建置、合作方 onboarding、核銷例外處理</td>
+            <td>NTD 200 萬</td>
+            <td>首年以合作流程穩定為優先，將活動建置、對帳協調與客服成本獨立列帳。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note" style="margin-top:14px">
+        <strong>首年基準試算：</strong>合作金流約 NTD 2,270 萬，扣除任務回饋履約與營運支出約 NTD 1,525 萬後，可支應營運餘額約 NTD 745 萬。此數字為提案試算；會計淨利、正式收入認列、點數負債與分潤拆分需由北捷依合約與財會規範確認。若保留 ESG／健康共創收入，約 8 個每月 NTD 5 萬合作包即可達損益兩平；若不計入共創收入，需約 16 個合作包／月。
+      </div>
+
+      <div class="grid grid-3" style="margin-top:14px">
+        <article class="card">
+          <h3>對使用者</h3>
+          <p>使用者在原本旅程裡得到更有用的提醒：下雨借傘、沒電借電、轉乘空檔快剪或預約電話亭、下班運動、出站走一段、YouBike 接駁，並得到可理解的捷運點回饋。</p>
+        </article>
+        <article class="card">
+          <h3>對北捷</h3>
+          <p>提高 Go App 開啟率、捷運點消耗場景、站點商業服務曝光、空間租賃招商誘因、共享服務招商與市政低碳敘事，同時保留資料治理與成本上限。</p>
+        </article>
+        <article class="card">
+          <h3>對合作方</h3>
+          <p>合作方取得「到站後高意圖的會員觸及」，站內租戶也能把租金投入轉成可衡量的推播、券量、核銷、任務完成與站點導客成效。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">09 / Roadmap & Risks</div>
+          <h2>落地路線與需確認事項</h2>
+        </div>
+        <p>落地規劃區分 MVP、活動試點與第二階段串接，讓北捷可逐步確認點數規範、合作方名單、資料授權與成本上限。</p>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>階段</th>
+            <th>要做什麼</th>
+            <th>Prototype 呈現</th>
+            <th>需確認事項</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Phase 1</td>
+            <td>Go App 內任務、推播、捷運點加成與 QR 換券示範。</td>
+            <td>可用示範資料完整展示使用者與 dashboard 流程。</td>
+            <td>捷運點活動規範、點數成本上限、碳係數正式版本。</td>
+          </tr>
+          <tr>
+            <td>Phase 2</td>
+            <td>與既有捷運點合作商家、Go!Map、智慧生活站、快閃櫃、快剪與站內服務做活動試點。</td>
+            <td>展示「中山站／大安站／小巨蛋站」等示範站點。</td>
+            <td>合作方名單、租賃點位資料、核銷方式、廣告審查流程與活動報表欄位。</td>
+          </tr>
+          <tr>
+            <td>Phase 3</td>
+            <td>串接悠遊付生活圈、U-Sport、YouBike 或共享服務事件回傳。</td>
+            <td>展示 API ready 的後台架構、資料權限與串接邊界。</td>
+            <td>法人合作、資料授權、支付／點數交換、個資與資安。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid grid-2" style="margin-top:14px">
+        <article class="card">
+          <h3>需主動管理的風險</h3>
+          <ul>
+            <li>U-Sport、YouBike、悠遊付與共享服務若要深度串接，需要跨局處與法人合作。</li>
+            <li>健康資料、步數與個人化推薦必須採 opt-in，並具備清楚資料治理與使用者同意機制。</li>
+            <li>點數加成需設定預算、上限與活動條件，控制為可預算化成本。</li>
+            <li>站內合作品牌可作示範，但正式可用點／領點名單仍需北捷確認。</li>
+            <li>租賃空間的招牌、螢幕與行銷內容需依北捷審查；本案不假設租戶可自行販售第三方廣告。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>北捷審閱重點回應</h3>
+          <p>本案從北捷既有的捷運點、Go App、Go!Map、站內空間租賃與站點服務出發，把共享服務、租賃導客和健康任務做成可控的活動包。使用者得到即時有用的任務與回饋，合作方取得可衡量導流，北捷則能把減碳、健康與空間活用轉化為可持續的會員經營。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">10 / Sources</div>
+          <h2>公開來源與本案依據</h2>
+        </div>
+        <p>本提案使用 2026-07-24 查核到的公開資料與 workspace 內部整理；外部條款仍可能改變。</p>
+      </div>
+
+      <div class="source-grid">
+        <div class="card">
+          <h3>北捷與點數基礎</h3>
+          <ol class="sources">
+            <li><a href="https://www.metro.taipei/News_Content.aspx?n=320CF0D294FF9489&s=7F9A3E807DB61B83&sms=EA56BA3CA296DDF6">「台北捷運 Go」App 會員獎勵點數使用辦法</a><small>捷運點定義、累點、使用、優惠券與換點說明。</small></li>
+            <li><a href="https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&s=CF45E6CAEB499A84">臺北市政府新聞稿：Go!Map 累點／銷點地圖</a><small>Go!Map 可查累點與銷點店家，並說明 1 點折抵 1 元與擴大使用場域。</small></li>
+            <li><a href="https://play.google.com/store/apps/details?hl=zh_TW&id=tw.com.trtc.is.android05">Google Play：台北捷運 Go App</a><small>App 提供車站資訊、即時資訊、會員功能、優惠券、捷運點與 Go!Map。</small></li>
+            <li><a href="points-business-model-report.html">點數商業模式研究報告</a><small>本案先前整理的點數機制、企業好處與限制。</small></li>
+            <li><a href="workshop-discussion-notes.md">工作坊與點數討論整理</a><small>北捷輔導員回饋與 prototype 調整方向；非北捷正式公告。</small></li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>共享、健康與生活圈來源</h3>
+          <ol class="sources">
+            <li><a href="https://www.yannick.com.tw/newsdetail?id=86747059-eaf1-494f-8aef-fd6d308e3ed7">亞尼克：YTM 蛋糕販賣機北捷新增 20 站</a><small>官方公告北捷新增站點與 YTM 機台規模。</small></li>
+            <li><a href="https://www.yannick.com.tw/ytm/ytmintro">亞尼克 YTM 介紹</a><small>現場購買、多元付款，含悠遊卡、台灣 Pay 等。</small></li>
+            <li><a href="https://www.pluginnpowerbank.com/">旅電科技共享行動電源</a><small>官方頁面說明台北捷運全線設點、可租可還。</small></li>
+            <li><a href="https://www.charge-spot.tw/">ChargeSPOT 台灣</a><small>共享行動電源、交通樞紐場景、以租代買與悠遊付等支付方式。</small></li>
+            <li><a href="https://www.metro.taipei/News_Content.aspx?n=30CCEFD2A45592BF&s=6908199DD45495B9&sms=72544237BBE4C5F6">北捷新聞稿：raingo 共享傘</a><small>北捷攜手樂眾科技推出共享傘，甲站借乙站還。</small></li>
+            <li><a href="https://www.raingo.com.tw/">raingo 官方網站</a><small>共享傘、行動租還、減少浪費與使用流程。</small></li>
+            <li><a href="https://usport.gov.taipei/">U-Sport 臺北樂運動官方網站</a><small>115 年 U-Sport、每日入場運動集點與 U-Walk 健康萬步走。</small></li>
+            <li><a href="https://usport.gov.taipei/planDescription">U-Sport 計畫說明</a><small>運動抵用金、合作場館與 U 幣用途。</small></li>
+            <li><a href="https://en.youbike.com.tw/region/taipei/rate/">YouBike Taipei Fee</a><small>台北市 YouBike 30 分鐘補助與會員租借規則。</small></li>
+            <li><a href="https://english.dot.gov.taipei/News_Content.aspx?n=3C4F5FC3FD2929A0&s=8AF8C6C6FF3EEA05">臺北市交通局：YouBike 前 30 分鐘免費政策</a><small>綠運輸、2030 目標、租借頻次與減碳估算。</small></li>
+            <li><a href="https://www.easycard.com.tw/">悠遊卡股份有限公司</a><small>悠遊卡專屬優惠、特約商店與 Easy Wallet 悠遊付入口。</small></li>
+            <li><a href="https://www-ws.gov.taipei/Download.ashx?icon=..pdf&amp;n=MDnlpZHntIQucGRm&amp;u=LzAwMS9VcGxvYWQvNDA1L3JlbGZpbGUvNDQ4NTIvOTUyNjE5NC80MmUxZGZjZC00Y2Y4LTRiMTctOTc2ZC0wYzQ1NTYwZDU5YWUucGRm">捷運智慧生活站空間租賃契約</a><small>經營項目包含智慧物流取物櫃、智慧型自動販賣機、多功能電子商務機具，並要求 O2O 與捷運會員優惠／點數兌換。</small></li>
+            <li><a href="https://www-ws.gov.taipei/Download.ashx?icon=..pdf&amp;n=MTAuMeWlkee0hOmZhOS7tjEt56ef6LOD5qiZ55qE5piO57Sw6KGo5Y%2BK5L2N572u5ZyWLULntYQucGRm&amp;u=LzAwMS9VcGxvYWQvNDA1L3JlbGZpbGUvNDQ4NTIvOTUyNjE5NC9kNmRjNzE1My1hNzE0LTQxNGYtYjcwNS0wY2VhZTVkMDgwZTMucGRm">捷運智慧生活站空間租賃明細表 B 組</a><small>公開點位包含輔大、松江南京、北門、大坪林、市政府、西門、101/世貿等站點。</small></li>
+            <li><a href="https://www.metro.taipei/News_Content.aspx?n=EFD13E3D58D85232&amp;s=4532BEA659782BA8&amp;sms=5A9F825C85481C73">捷運快閃櫃申請公告</a><small>快閃櫃需搭配台北捷運 Go App 捷運點特約商店、商品券或折價券與宣傳管道。</small></li>
+            <li><a href="https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&amp;s=255FCEE15D725FDC">中山站 Happ. 小樹屋電話亭</a><small>北捷新聞稿說明站內共享微型時租空間、Go App 會員優惠券與線上預約。</small></li>
+            <li><a href="https://www.qbhouse.com.tw/store/list/all/1">QB HOUSE 店鋪列表</a><small>官方店鋪列表列有信義安和捷運站內、松江南京往 8 號出口、北車 M1、忠孝復興地下街等快剪服務點。</small></li>
+            <li><a href="https://data.taipei/dataset/detail?id=1af7c10f-2386-4ba3-ac3d-85b83035dcc7">臺北捷運車站廣告契約出租資料</a><small>臺北市資料大平臺提供捷運車站廣告契約出租資料欄位，證明站內廣告租賃可作為獨立商業資產。</small></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:14px">
+        <strong>提案邊界：</strong>本 HTML 為台北捷運審閱版提案。亞尼克、旅電、ChargeSPOT、raingo、YouBike、U-Sport、悠遊付、智慧生活站、快閃櫃、快剪、小樹屋與站內廣告版位等在本案中皆作為「可論證的合作場景」或「第二階段串接路徑」；正式對外素材需依北捷與合作方確認結果標示合作狀態。租賃點位上的招牌、螢幕與行銷內容需依北捷規範審查，本案不假設租戶可自行販售第三方廣告。
+      </div>
+
+      <p class="footer-note">可用瀏覽器直接開啟或列印，作為北捷審閱與決賽簡報內容基礎。</p>
+    </section>
+  </main>
+</body>
+</html>

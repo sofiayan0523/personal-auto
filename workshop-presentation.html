@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>從碳客變捷客｜2026 捷運盃黑客松工作坊簡報</title>
+  <style>
+    @font-face {
+      font-family: "Workshop CJK";
+      src: url("assets/fonts/NotoSansCJKtc-Workshop.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    :root {
+      --ink: #17202a;
+      --muted: #5b6673;
+      --line: #d8e0e7;
+      --paper: #fbfcfd;
+      --panel: #ffffff;
+      --green: #1f8f71;
+      --green-dark: #0e5f4b;
+      --blue: #2f6db4;
+      --orange: #e17733;
+      --yellow: #f1c94f;
+      --red: #d54d4d;
+      --shadow: 0 24px 60px rgba(23, 32, 42, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(47, 109, 180, 0.07) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(31, 143, 113, 0.06) 1px, transparent 1px),
+        #edf3f5;
+      background-size: 44px 44px;
+      font-family: "Workshop CJK", "Noto Sans CJK TC", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      letter-spacing: 0;
+      overflow: hidden;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .deck {
+      width: min(100%, 1440px);
+      height: 100vh;
+      margin: 0 auto;
+      padding: 28px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 18px;
+    }
+
+    .slide {
+      display: none;
+      min-height: 0;
+      padding: clamp(24px, 3.5vw, 44px);
+      background: var(--paper);
+      border: 1px solid rgba(23, 32, 42, 0.1);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: auto;
+      position: relative;
+    }
+
+    .slide.active {
+      display: grid;
+      align-content: stretch;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(23, 32, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(23, 32, 42, 0.025) 1px, transparent 1px);
+      background-size: 8px 8px;
+      opacity: 0.45;
+      mix-blend-mode: multiply;
+    }
+
+    .slide > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--green-dark);
+      font-size: clamp(13px, 1.15vw, 16px);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 950px;
+      margin-bottom: 18px;
+      font-size: clamp(48px, 6.2vw, 88px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 980px;
+      margin-bottom: 16px;
+      font-size: clamp(28px, 3.6vw, 50px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: clamp(18px, 1.7vw, 25px);
+      line-height: 1.2;
+    }
+
+    p,
+    li {
+      font-size: clamp(16px, 1.25vw, 20px);
+      line-height: 1.48;
+    }
+
+    .lead {
+      max-width: 980px;
+      color: #243240;
+      font-size: clamp(18px, 1.6vw, 26px);
+      line-height: 1.44;
+      font-weight: 650;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .small {
+      font-size: clamp(13px, 1vw, 16px);
+      line-height: 1.5;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: clamp(22px, 3vw, 42px);
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(23, 32, 42, 0.07);
+    }
+
+    .card.compact {
+      padding: 12px 14px;
+    }
+
+    .card p:last-child,
+    .card ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 12px;
+      color: #fff;
+      background: var(--blue);
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tag.green {
+      background: var(--green);
+    }
+
+    .tag.orange {
+      background: var(--orange);
+    }
+
+    .tag.dark {
+      background: var(--ink);
+    }
+
+    .title-meta {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: clamp(18px, 1.55vw, 24px);
+      line-height: 1.5;
+    }
+
+    .route-map {
+      min-height: 360px;
+      padding: 26px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(241, 201, 79, 0.18), transparent 30%),
+        linear-gradient(145deg, #fff, #ecf5f2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .route-line {
+      position: absolute;
+      left: 54px;
+      right: 54px;
+      top: 50%;
+      height: 16px;
+      transform: translateY(-50%);
+      background: linear-gradient(90deg, var(--green), var(--blue), var(--orange));
+      border-radius: 999px;
+      box-shadow: 0 12px 28px rgba(31, 143, 113, 0.24);
+    }
+
+    .station {
+      position: absolute;
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background: #fff;
+      border: 8px solid currentColor;
+      border-radius: 50%;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(23, 32, 42, 0.14);
+    }
+
+    .station.s1 {
+      left: 48px;
+      top: calc(50% - 36px);
+      color: var(--green);
+    }
+
+    .station.s2 {
+      left: calc(50% - 36px);
+      top: calc(50% - 36px);
+      color: var(--blue);
+    }
+
+    .station.s3 {
+      right: 48px;
+      top: calc(50% - 36px);
+      color: var(--orange);
+    }
+
+    .map-label {
+      position: absolute;
+      width: 170px;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .map-label.one {
+      left: 28px;
+      top: 72px;
+    }
+
+    .map-label.two {
+      left: calc(50% - 85px);
+      bottom: 64px;
+      text-align: center;
+    }
+
+    .map-label.three {
+      right: 28px;
+      top: 72px;
+      text-align: right;
+    }
+
+    .phone {
+      width: min(100%, 274px);
+      margin: 0 auto;
+      padding: 12px;
+      background: #111a23;
+      border-radius: 32px;
+      box-shadow: 0 26px 54px rgba(23, 32, 42, 0.25);
+    }
+
+    .phone-screen {
+      min-height: 0;
+      padding: 14px;
+      background: #f7faf8;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: #6b7683;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .app-card {
+      padding: 9px;
+      margin-bottom: 7px;
+      background: #fff;
+      border: 1px solid #dbe5e2;
+      border-radius: 8px;
+      box-shadow: 0 8px 22px rgba(23, 32, 42, 0.08);
+    }
+
+    .app-card.dark {
+      color: #fff;
+      background: linear-gradient(135deg, var(--green-dark), var(--blue));
+      border-color: transparent;
+    }
+
+    .app-card .number {
+      margin: 2px 0;
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .app-card h3 {
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .app-card .small,
+    .route-pill {
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .route-pill {
+      display: grid;
+      grid-template-columns: 14px 1fr auto;
+      gap: 8px;
+      align-items: center;
+      margin-top: 7px;
+      font-weight: 800;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .dot.blue {
+      background: var(--blue);
+    }
+
+    .dot.orange {
+      background: var(--orange);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .metric {
+      padding: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green-dark);
+      font-size: clamp(22px, 2.4vw, 36px);
+      line-height: 1;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .flow-step {
+      min-height: 136px;
+      padding: 15px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .flow-step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      width: 16px;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .flow-step b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 8px;
+      color: #fff;
+      background: var(--green);
+      border-radius: 50%;
+      font-size: 17px;
+    }
+
+    .quote {
+      max-width: 1040px;
+      padding-left: 22px;
+      border-left: 9px solid var(--green);
+      font-size: clamp(22px, 2.35vw, 36px);
+      line-height: 1.35;
+      font-weight: 850;
+    }
+
+    .formula {
+      padding: 16px 20px;
+      background: #14202b;
+      color: #fff;
+      border-radius: 8px;
+      font-size: clamp(18px, 1.65vw, 25px);
+      line-height: 1.45;
+      font-weight: 850;
+    }
+
+    .slide[data-title="技術可行性"] .card {
+      padding: 14px;
+    }
+
+    .slide[data-title="技術可行性"] .card p {
+      font-size: 15px;
+      line-height: 1.42;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 10px;
+      counter-reset: q;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .question-list li {
+      counter-increment: q;
+      padding: 14px 18px 14px 62px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .question-list li::before {
+      content: counter(q);
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--blue);
+      border-radius: 50%;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .bottom-bar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .control-button {
+      width: 42px;
+      height: 42px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid rgba(23, 32, 42, 0.15);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .control-button:hover,
+    .control-button:focus-visible {
+      outline: 3px solid rgba(47, 109, 180, 0.24);
+      border-color: var(--blue);
+    }
+
+    .progress {
+      justify-self: end;
+      width: min(280px, 100%);
+      height: 10px;
+      background: rgba(23, 32, 42, 0.12);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--green), var(--blue), var(--orange));
+      border-radius: inherit;
+      transition: width 160ms ease;
+    }
+
+    .slide-count {
+      min-width: 70px;
+      text-align: center;
+      font-weight: 850;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    @media (max-width: 920px) {
+      .deck {
+        padding: 12px;
+      }
+
+      .slide {
+        min-height: calc(100vh - 86px);
+        padding: 28px 20px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .flow,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .route-map {
+        min-height: 320px;
+      }
+
+      .station {
+        width: 58px;
+        height: 58px;
+        border-width: 7px;
+      }
+
+      .station.s1 {
+        left: 26px;
+        top: calc(50% - 29px);
+      }
+
+      .station.s2 {
+        left: calc(50% - 29px);
+        top: calc(50% - 29px);
+      }
+
+      .station.s3 {
+        right: 26px;
+        top: calc(50% - 29px);
+      }
+
+      .map-label {
+        width: 124px;
+        font-size: 14px;
+      }
+
+      .map-label.one {
+        left: 18px;
+        top: 42px;
+      }
+
+      .map-label.two {
+        left: calc(50% - 62px);
+        bottom: 40px;
+      }
+
+      .map-label.three {
+        right: 18px;
+        top: 42px;
+      }
+
+      .flow-step::after {
+        display: none;
+      }
+
+      .phone {
+        width: min(100%, 330px);
+      }
+
+      .phone-screen {
+        min-height: auto;
+      }
+
+      .bottom-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .progress {
+        justify-self: stretch;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .deck {
+        display: block;
+        width: 100%;
+        padding: 0;
+      }
+
+      .slide {
+        display: grid !important;
+        min-height: 100vh;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+
+      .bottom-bar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-live="polite">
+    <section class="slide active" data-title="封面">
+      <div class="grid-2">
+        <div>
+          <p class="kicker">2026 捷運盃黑客松工作坊｜115/7/18 北投會館</p>
+          <h1>從碳客<br>變捷客</h1>
+          <p class="lead">把「搭捷運」從交通選擇，變成會省錢、會累積回饋，也看得見減碳成果的日常行動。</p>
+          <div class="tag-row" aria-label="提案關鍵字">
+            <span class="tag green">AI 個人化推薦</span>
+            <span class="tag">捷運點活化</span>
+            <span class="tag orange">碳足跡回饋</span>
+            <span class="tag dark">Go App 模組</span>
+          </div>
+        </div>
+        <div class="route-map" aria-label="捷運路線概念圖">
+          <div class="route-line"></div>
+          <div class="station s1">碳</div>
+          <div class="station s2">點</div>
+          <div class="station s3">捷</div>
+          <div class="map-label one">碳足跡<br>變成可感回饋</div>
+          <div class="map-label two">點數路線<br>主動推薦</div>
+          <div class="map-label three">更多搭乘<br>更高捷運點加成</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="提案一句話">
+      <div>
+        <p class="kicker">Proposal in 30 seconds</p>
+        <h2>我們想在台北捷運 Go App 裡，新增一個「捷運點導航」AI 服務模組。</h2>
+        <p class="lead">它會依照使用者的通勤路線、消費偏好與目前捷運點狀態，推薦最適合的路線與沿線商家；同時把搭捷運省下的碳排，轉換成捷運點加成。</p>
+        <div class="metric-grid">
+          <div class="metric">
+            <strong>省錢</strong>
+            <p class="small">讓使用者知道哪裡能賺點、用點，不再讓捷運點被閒置。</p>
+          </div>
+          <div class="metric">
+            <strong>減碳</strong>
+            <p class="small">讓每趟捷運旅程的碳節省量被看見，並變成可感知的回饋。</p>
+          </div>
+          <div class="metric">
+            <strong>導客</strong>
+            <p class="small">把特約商家從被動地圖查詢，升級成主動推薦與精準曝光。</p>
+          </div>
+          <div class="metric">
+            <strong>可信</strong>
+            <p class="small">去識別化統計值可上鏈留存稽核軌跡，兼顧 ESG 揭露與個資保護。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="為什麼現在">
+      <div>
+        <p class="kicker">Problem and opportunity</p>
+        <h2>捷運點有價值，但現在還不夠主動；減碳有意義，但現在還不夠有感。</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>使用者痛點</h3>
+            <p>既有累點、銷點資訊需要使用者自行查找。點數若缺乏情境提醒，容易被閒置或直到到期才被動處理。</p>
+          </div>
+          <div class="card">
+            <h3>城市機會</h3>
+            <p>大眾運輸是城市減碳的核心場景。若能把個人減碳行為產品化，會比純宣導更容易形成日常習慣。</p>
+          </div>
+          <div class="card">
+            <h3>商業機會</h3>
+            <p>沿線商家需要更精準的到店流量；金融與品牌合作方也需要可量化、可敘事的 ESG 場景。</p>
+          </div>
+        </div>
+        <p class="quote" style="margin-top: 28px;">我們不是重新做一個 App，而是把 Go App 既有資料與商家地圖，變成更主動的智慧服務。</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="三大模組">
+      <div>
+        <p class="kicker">Core modules</p>
+        <h2>三個模組，把捷運點、商家與減碳回饋串起來。</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>一、AI 點數路線引擎</h3>
+            <p>依歷史搭乘、消費偏好、車站位置與商家類別，產生今日推薦路線，標示可賺點與可用點商家。</p>
+          </div>
+          <div class="card">
+            <h3>二、碳足跡與捷運點加成</h3>
+            <p>每次進出站後估算旅程碳節省量，累積達門檻後提高當月捷運點加成倍率。</p>
+          </div>
+          <div class="card">
+            <h3>三、今日捷運點報告卡</h3>
+            <p>在首頁顯示本日、本月碳節省量、目前加成等級、推薦商家與分享卡片。</p>
+          </div>
+        </div>
+        <div class="flow">
+          <div class="flow-step">
+            <b>1</b>
+            <h3>搭乘</h3>
+            <p class="small">刷卡進出站取得里程與旅程資料。</p>
+          </div>
+          <div class="flow-step">
+            <b>2</b>
+            <h3>計算</h3>
+            <p class="small">估算該趟捷運相較私人運具的碳節省量。</p>
+          </div>
+          <div class="flow-step">
+            <b>3</b>
+            <h3>推薦</h3>
+            <p class="small">依偏好推送沿線可累點、可用點商家。</p>
+          </div>
+          <div class="flow-step">
+            <b>4</b>
+            <h3>回饋</h3>
+            <p class="small">達成門檻後觸發捷運點加成與分享。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="產品畫面">
+      <div class="grid-2">
+        <div>
+          <p class="kicker">Product experience</p>
+          <h2>讓使用者一打開 App，就知道「今天怎麼搭、怎麼賺、減了多少碳」。</h2>
+          <div class="stack">
+            <div class="card compact">
+              <h3>首頁卡片</h3>
+              <p class="small">本月碳節省量、目前捷運點倍率、下一個門檻與推薦路線。</p>
+            </div>
+            <div class="card compact">
+              <h3>出站推播</h3>
+              <p class="small">出站後提醒附近最高回報的用點與累點店家。</p>
+            </div>
+            <div class="card compact">
+              <h3>分享素材</h3>
+              <p class="small">把減碳成果轉成社群可分享的捷運點報告卡，帶動口碑擴散。</p>
+            </div>
+          </div>
+          <p class="small muted" style="margin-top: 10px;">原型網址：<a href="https://sofiayan0523.github.io/from-carbon-to-metro/" target="_blank" rel="noreferrer">sofiayan0523.github.io/from-carbon-to-metro/</a></p>
+        </div>
+        <div class="phone" aria-label="App 介面示意">
+          <div class="phone-screen">
+            <div class="status"><span>9:41</span><span>Metro Go</span></div>
+            <div class="app-card dark">
+              <p class="small" style="margin: 0;">本月碳節省</p>
+              <div class="number">6.8 kg</div>
+              <p class="small" style="margin: 0;">已解鎖 1.2x 捷運點加成</p>
+            </div>
+            <div class="app-card">
+              <h3>今日推薦路線</h3>
+              <div class="route-pill"><span class="dot"></span><span>復興崗 → 中山</span><span>+18 點</span></div>
+              <div class="route-pill"><span class="dot blue"></span><span>中山站甜點合作店</span><span>可折抵</span></div>
+              <div class="route-pill"><span class="dot orange"></span><span>下一門檻</span><span>10 kg</span></div>
+            </div>
+            <div class="app-card">
+              <h3>出站提醒</h3>
+              <p class="small">步行 3 分鐘內有 2 家可累點商家，最高回饋 8%。</p>
+            </div>
+            <div class="app-card">
+              <h3>分享卡片</h3>
+              <p class="small">你本月已超越全市平均捷運點用戶 62%。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="技術可行性">
+      <div>
+        <p class="kicker">Feasibility</p>
+        <h2>技術上優先用既有資料，先做可離線展示的 MVP。</h2>
+        <div class="grid-2">
+          <div class="stack">
+            <div class="card">
+              <h3>資料來源</h3>
+              <p>搭乘紀錄與里程已存在於票務系統；累點、銷點商家資訊已在 Go!Map；碳排係數使用環境部公開資料。</p>
+            </div>
+            <div class="card">
+              <h3>推薦模型</h3>
+              <p>先用 content-based 解決新用戶冷啟動，再以協同過濾與地理圍欄提高推薦精準度。</p>
+            </div>
+            <div class="card">
+              <h3>資料治理</h3>
+              <p>使用者採 opt-in；訓練資料做去識別化與差分隱私處理；統計值可留存不可竄改稽核軌跡。</p>
+            </div>
+          </div>
+          <div>
+            <div class="formula">碳節省量 =（自小客車係數 130 − 捷運係數 40）× 搭乘里程<br><br>= 90 gCO₂e × km</div>
+            <div class="card" style="margin-top: 18px;">
+              <h3>決賽 Demo 方向</h3>
+              <p>高擬真 UI 原型搭配輕量後端，現場展示推薦、碳計算與捷運點加成流程；即使沒有正式 API，也能用模擬資料離線執行。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="效益">
+      <div>
+        <p class="kicker">Value</p>
+        <h2>同一個機制，同時創造使用者、商家、捷運公司與城市 ESG 價值。</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>使用者</h3>
+            <p>更容易找到可賺點、可用點場景；減碳不只是數字，而是能回到點數與回饋。</p>
+          </div>
+          <div class="card">
+            <h3>商家</h3>
+            <p>從被動等待查詢，變成被 AI 主動推薦，增加曝光與到店轉換。</p>
+          </div>
+          <div class="card">
+            <h3>捷運公司</h3>
+            <p>提高 Go App 開啟率與捷運點活躍度，也能沉澱商圈與旅運偏好資料。</p>
+          </div>
+          <div class="card">
+            <h3>金融合作方</h3>
+            <p>可延伸綠色信用卡、碳節省回饋金或 ESG 聯名活動。</p>
+          </div>
+          <div class="card">
+            <h3>城市政策</h3>
+            <p>把大眾運輸減碳成效變成可量化的城市淨零敘事。</p>
+          </div>
+          <div class="card">
+            <h3>團隊優勢</h3>
+            <p>橫跨資料科技、點數經濟與公共治理，能同時理解技術、使用者與政策落地。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="工作坊討論">
+      <div>
+        <p class="kicker">Questions for mentor discussion</p>
+        <h2>今天想跟捷運公司輔導員確認的 5 件事</h2>
+        <ol class="question-list">
+          <li>Go App 目前是否有可供原型串接或模擬的商家、點數、站點資料格式？</li>
+          <li>若要做出站後附近商家推薦，捷運公司最在意的推播規則與使用者體驗限制是什麼？</li>
+          <li>捷運點加成若影響捷運點成本，較合理的獎勵門檻、上限與補貼來源應如何設定？</li>
+          <li>碳節省量適合作為使用者個人回饋、城市 ESG 報告，還是品牌聯名活動的核心指標？</li>
+          <li>決賽 Demo 應該優先展示哪一段流程，最能讓評審看見落地可能性？</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide" data-title="收尾">
+      <div>
+        <p class="kicker">Team message</p>
+        <h2>我們想做的不是一個新的集點活動，而是一個讓綠色移動被每天感受到的捷運服務。</h2>
+        <p class="lead">當使用者知道自己搭捷運省下了多少碳、能獲得什麼回饋、沿線哪裡可以使用點數，捷運就不只是通勤工具，也會成為城市低碳生活的入口。</p>
+        <div class="card" style="margin-top: 32px;">
+          <p class="quote" style="margin: 0;">黑捷客出發，創意進站，決賽我們全力到站！</p>
+        </div>
+        <p class="title-meta" style="margin-top: 28px;">
+          <span>團隊：想領獎金的捷客</span>
+          <span>作品：從碳客變捷客</span>
+        </p>
+      </div>
+    </section>
+
+    <nav class="bottom-bar" aria-label="簡報控制列">
+      <div id="slideTitle">封面</div>
+      <div class="controls">
+        <button class="control-button" type="button" id="prev" aria-label="上一頁">‹</button>
+        <div class="slide-count" id="slideCount">1 / 9</div>
+        <button class="control-button" type="button" id="next" aria-label="下一頁">›</button>
+      </div>
+      <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+    </nav>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const prevButton = document.querySelector("#prev");
+    const nextButton = document.querySelector("#next");
+    const slideCount = document.querySelector("#slideCount");
+    const slideTitle = document.querySelector("#slideTitle");
+    const progress = document.querySelector("#progress");
+    let index = 0;
+
+    function showSlide(nextIndex) {
+      index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+      slides.forEach((slide, currentIndex) => {
+        slide.classList.toggle("active", currentIndex === index);
+      });
+      slideCount.textContent = `${index + 1} / ${slides.length}`;
+      slideTitle.textContent = slides[index].dataset.title || "";
+      progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+      prevButton.disabled = index === 0;
+      nextButton.disabled = index === slides.length - 1;
+      history.replaceState(null, "", `#${index + 1}`);
+    }
+
+    prevButton.addEventListener("click", () => showSlide(index - 1));
+    nextButton.addEventListener("click", () => showSlide(index + 1));
+
+    document.addEventListener("keydown", (event) => {
+      const forwardKeys = ["ArrowRight", "ArrowDown", " ", "PageDown"];
+      const backKeys = ["ArrowLeft", "ArrowUp", "PageUp"];
+      if (forwardKeys.includes(event.key)) {
+        event.preventDefault();
+        showSlide(index + 1);
+      }
+      if (backKeys.includes(event.key)) {
+        event.preventDefault();
+        showSlide(index - 1);
+      }
+      if (event.key === "Home") {
+        event.preventDefault();
+        showSlide(0);
+      }
+      if (event.key === "End") {
+        event.preventDefault();
+        showSlide(slides.length - 1);
+      }
+    });
+
+    const initial = Number.parseInt(location.hash.replace("#", ""), 10);
+    if (Number.isInteger(initial) && initial >= 1 && initial <= slides.length) {
+      showSlide(initial - 1);
+    } else {
+      showSlide(0);
+    }
+  </script>
+</body>
+</html>
